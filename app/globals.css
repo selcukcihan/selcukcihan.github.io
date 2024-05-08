@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
 }
 
@@ -24,10 +24,22 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+} */
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+.selc-image-container {
+  width: 120px;
+  height: 120px;
+}
+
+@media (min-width: 976px) {
+  .selc-image-container {
+    width: 160px;
+    height: 160px;
   }
 }
