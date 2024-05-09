@@ -7,11 +7,6 @@ const HEADER_SECOND = "With over seven years of experience developing applicatio
 
 const TESTIMONIALS = [
   {
-    text: "“I had the pleasure to manage and to work with Selcuk Cihan for the past 2 years while at Tellimer. He rose brilliantly to all challenges thrown at him both technically and communication wise. I would say his superpower is his communications skills, both writing and talking.“",
-    author: "Decebal Dobrica - Software Architect, Tellimer",
-    full: `I had the pleasure to manage and to work with Selcuk Cihan for the past 2 years while at Tellimer. He rose brilliantly to all challenges thrown at him both technically and communication wise. I would say his superpower is his communications skills, both writing and talking. As a manager I had very little to ask of him as he is independent and knows how to exercise his ownership of a technical product by documenting the developments, the current state, technical debt and possible improvements to a system he works on. I relied heavily on his ever improving know-how around aws technologies in particular, but not exclusively, using typescript/javascript SDKs.`
-  },
-  {
     text: "“I've been most impressed by his exceptional ability to tackle every phase of software development with in-depth knowledge, confidence and clear communication. I cannot emphasize enough how good Selcuk is at communicating in a clear and structured manner.”",
     author: "Daniel Vliegenthart - Team Lead, parsel.ai",
     full: `Through this letter, I wish to outline Selcuk Cihan's responsibilities during his time working on Parsel.ai and certify his excellence as senior software development engineer.
@@ -25,6 +20,11 @@ const TESTIMONIALS = [
     Beyond the requirements stage, Selcuk has shown again and again that he thrives in all areas of the software implementation phase. His coding style is stellar, his expertise in various programming languages, including Python, JavaScript and TypeScript, is extensive and his knowledge of testing is top-tier. Furthermore, the entire team relied on Selcuk's deep knowledge of AWS services, integrations and new feature releases.
     
     I can highly recommend Selcuk for any future ventures in his field of expertise and have no doubt that he will thrive in any company and team that values building exceptional software.`
+  },
+  {
+    text: "“I had the pleasure to manage and to work with Selcuk Cihan for the past 2 years while at Tellimer. He rose brilliantly to all challenges thrown at him both technically and communication wise. I would say his superpower is his communications skills, both writing and talking.“",
+    author: "Decebal Dobrica - Software Architect, Tellimer",
+    full: `I had the pleasure to manage and to work with Selcuk Cihan for the past 2 years while at Tellimer. He rose brilliantly to all challenges thrown at him both technically and communication wise. I would say his superpower is his communications skills, both writing and talking. As a manager I had very little to ask of him as he is independent and knows how to exercise his ownership of a technical product by documenting the developments, the current state, technical debt and possible improvements to a system he works on. I relied heavily on his ever improving know-how around aws technologies in particular, but not exclusively, using typescript/javascript SDKs.`
   },
   {
     text: "“He was the perfect remote contractor in many ways. His communication skills are top, he is very much a self-starter who can get stuck in on work with minimal guidance or oversight, and his code quality (and documentation!) is exceptional.”",

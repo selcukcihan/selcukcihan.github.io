@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Quicksand } from "next/font/google";
+import { Sora } from "next/font/google";
 import "./globals.css";
 
-const inter = Quicksand({ subsets: ["latin"] });
+const font = Sora({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Selçuk Cihan | Freelance Software Engineer",
@@ -43,7 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={font.className}>{children}</body>
     </html>
   );
 }
