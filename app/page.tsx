@@ -40,7 +40,7 @@ const TESTIMONIALS = [
 
 export default function Home() {
   return (
-    <main className="p-4 lg:p-8 min-h-screen">
+    <main className="p-4 lg:p-8 min-h-screen dark:text-white dark:bg-gray-950">
       <div className="py-1 lg:py-8 flex justify-center items-center font-extralight lg:text-xl">
         <Link className="px-4 lg:px-8 underline" href="/">Home</Link>
         <Link className="px-4 lg:px-8" href="/career">Career</Link>
@@ -103,7 +103,7 @@ export default function Home() {
 }
 
 const Testimonial = (props: any) => (
-  <div className="grid grid-col-1 w-72 lg:w-96 h-64 lg:h-72 m-4 p-4 justify-self-center bg-primary-0 shadow-lg rounded-sm shadow-secondary-1 text-sm lg:text-md text-justify text-pretty">
+  <div className="grid grid-col-1 w-72 lg:w-96 h-64 lg:h-96 m-4 p-4 justify-self-center bg-primary-0 dark:bg-secondary-1 shadow-lg rounded-sm shadow-secondary-1 dark:shadow-black text-sm lg:text-base text-justify text-pretty">
     <p className="font-extralight italic lg:pt-10">{props.text}</p>
     <p className="font-light self-end lg:pb-10">{props.author}</p>
   </div>

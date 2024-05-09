@@ -49,3 +49,9 @@ body {
 .cryptedmail:after {
   content: attr(data-name) "@" attr(data-domain); 
 }
+
+@media (prefers-color-scheme: dark) {
+  path {
+      fill: white;
+  }
+}
