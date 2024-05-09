@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from 'next/link'
-import { SocialIcon } from 'react-social-icons'
 import Email from "../components/email";
 
 const HEADER_FIRST = "As a former Amazonian devoted to helping customers and solving problems, Selçuk brings a strong sense of ownership and a track record of delivering results."
@@ -104,7 +103,7 @@ export default function Home() {
 }
 
 const Testimonial = (props: any) => (
-  <div className="grid grid-col-1 w-72 lg:w-96 h-64 lg:h-96 m-4 p-4 justify-self-center bg-primary-0 shadow-lg rounded-sm shadow-secondary-1 text-sm lg:text-md text-justify text-pretty">
+  <div className="grid grid-col-1 w-72 lg:w-96 h-64 lg:h-72 m-4 p-4 justify-self-center bg-primary-0 shadow-lg rounded-sm shadow-secondary-1 text-sm lg:text-md text-justify text-pretty">
     <p className="font-extralight italic lg:pt-10">{props.text}</p>
     <p className="font-light self-end lg:pb-10">{props.author}</p>
   </div>
