@@ -26,6 +26,8 @@ body {
     rgb(var(--background-start-rgb));
 } */
 
+
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -42,4 +44,8 @@ body {
     width: 160px;
     height: 160px;
   }
+}
+
+.cryptedmail:after {
+  content: attr(data-name) "@" attr(data-domain); 
 }
