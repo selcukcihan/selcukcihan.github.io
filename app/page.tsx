@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from 'next/link'
 import Email from "../components/email";
+import Header from "../components/header";
 
 const HEADER_FIRST = "As a former Amazonian devoted to helping customers and solving problems, Selçuk brings a strong sense of ownership and a track record of delivering results."
 const HEADER_SECOND = "With over seven years of experience developing applications on AWS, he has a proven ability to take on technical duties from operations to development and architecture."
@@ -40,13 +41,8 @@ const TESTIMONIALS = [
 
 export default function Home() {
   return (
-    <main className="p-4 lg:p-8 min-h-screen dark:text-white dark:bg-gray-950">
-      <div className="py-1 lg:py-8 flex justify-center items-center font-extralight lg:text-xl">
-        <Link className="px-4 lg:px-8 underline" href="/">Home</Link>
-        <Link className="px-4 lg:px-8" href="/career">Career</Link>
-        <Link className="px-4 lg:px-8"href="/education">Education</Link>
-        <Link className="px-4 lg:px-8"href="/skills">Skills</Link>
-      </div>
+    <main className="p-4 lg:p-8 min-h-screen dark:text-white bg-gray-100 dark:bg-gray-950">
+      <Header selected="home"/>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-16">
         <div className="p-2 lg:p-4 flex flex-row lg:flex-col items-center space-x-4 lg:space-x-0">
           <Image
@@ -62,10 +58,10 @@ export default function Home() {
             </div>
             <Email/>
             <div className="space-x-4 lg:space-x-8 p-1 lg:p-2 flex justify-center">
-              <a href="https://github.com/selcukcihan" target="#blank"><GithubIcon className="h-5 w-5 lg:h-8 lg:w-8"/></a>
-              <a href="https://linkedin.com/in/selcukcihan" target="#blank"><LinkedinIcon className="h-5 w-5 lg:h-8 lg:w-8"/></a>
-              <a href="https://stackoverflow.com/users/4281182" target="#blank"><StackoverflowIcon className="h-5 w-5 lg:h-8 lg:w-8"/></a>
-              <a href="https://twitter.com/scihan" target="#blank"><TwitterIcon className="h-5 w-5 lg:h-8 lg:w-8"/></a>
+              <a href="https://github.com/selcukcihan" target="#blank"><GithubIcon className="h-5 w-5 lg:h-6 lg:w-6"/></a>
+              <a href="https://linkedin.com/in/selcukcihan" target="#blank"><LinkedinIcon className="h-5 w-5 lg:h-6 lg:w-6"/></a>
+              <a href="https://stackoverflow.com/users/4281182" target="#blank"><StackoverflowIcon className="h-5 w-5 lg:h-6 lg:w-6"/></a>
+              <a href="https://twitter.com/scihan" target="#blank"><TwitterIcon className="h-5 w-5 lg:h-6 lg:w-6"/></a>
             </div>
           </div>
         </div>
@@ -103,9 +99,9 @@ export default function Home() {
 }
 
 const Testimonial = (props: any) => (
-  <div className="grid grid-col-1 w-72 lg:w-96 h-64 lg:h-96 m-4 p-4 justify-self-center bg-primary-0 dark:bg-secondary-1 shadow-lg rounded-sm shadow-secondary-1 dark:shadow-black text-sm lg:text-base text-justify text-pretty">
+  <div className="grid grid-col-1 h-64 lg:h-96 m-8 p-4 justify-self-center bg-primary-0 dark:bg-secondary-1 shadow-lg rounded-sm shadow-secondary-1 dark:shadow-black text-sm lg:text-base text-justify text-pretty">
     <p className="font-extralight italic lg:pt-10">{props.text}</p>
-    <p className="font-light self-end lg:pb-10">{props.author}</p>
+    <p className="font-light self-end lg:pb-10 text-center">{props.author}</p>
   </div>
 )
 

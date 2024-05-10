@@ -11,7 +11,14 @@ const config: Config = {
       colors: {
         'primary-0': '#FEFAF6',
         'secondary-1': '#102C57',
+        'secondary-2': '#ECB159',
+        'secondary-3': '#FFC374',
       },
+    },
+    listStyleType: {
+      none: 'none',
+      square: 'square',
+      disc: 'disc',
     },
   },
   plugins: [],
