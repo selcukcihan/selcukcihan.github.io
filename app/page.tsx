@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from 'next/link'
 import Email from "../components/email";
 import Header from "../components/header";
+import { MainStyle } from "./layout";
 
 const HEADER_FIRST = "As a former Amazonian devoted to helping customers and solving problems, Selçuk brings a strong sense of ownership and a track record of delivering results."
 const HEADER_SECOND = "With over seven years of experience developing applications on AWS, he has a proven ability to take on technical duties from operations to development and architecture."
@@ -41,7 +42,7 @@ const TESTIMONIALS = [
 
 export default function Home() {
   return (
-    <main className="p-4 lg:p-8 min-h-screen dark:text-white bg-gray-100 dark:bg-gray-950">
+    <main className={MainStyle}>
       <Header selected="home"/>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-16">
         <div className="p-2 lg:p-4 flex flex-row lg:flex-col items-center space-x-4 lg:space-x-0">
@@ -99,8 +100,8 @@ export default function Home() {
 }
 
 const Testimonial = (props: any) => (
-  <div className="grid grid-col-1 h-64 lg:h-96 m-8 p-4 justify-self-center bg-primary-0 dark:bg-secondary-1 shadow-lg rounded-sm shadow-secondary-1 dark:shadow-black text-sm lg:text-base text-justify text-pretty">
-    <p className="font-extralight italic lg:pt-10">{props.text}</p>
+  <div className="grid grid-col-1 h-64 lg:h-72 m-8 p-4 justify-self-center bg-primary-0 dark:bg-secondary-1 shadow-lg rounded-sm shadow-secondary-1 dark:shadow-black text-sm lg:text-base text-justify text-pretty">
+    <p className="font-light italic lg:pt-10">{props.text}</p>
     <p className="font-light self-end lg:pb-10 text-center">{props.author}</p>
   </div>
 )

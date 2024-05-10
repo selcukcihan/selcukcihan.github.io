@@ -1,4 +1,5 @@
 import Header from "../../components/header"
+import { MainStyle } from "../layout"
 
 const data = [
   {
@@ -29,7 +30,7 @@ const data = [
 
 export default function Education(props: any) {
   return (
-    <main className="p-4 lg:p-8 min-h-screen dark:text-white bg-gray-100 dark:bg-gray-950">
+    <main className={MainStyle}>
       <Header selected="education"/>
       <div className="grid grid-cols-1 gap-8 pt-8">
         {data.map((job, idx) => (<EducationCard key={idx} {...job}/>))}

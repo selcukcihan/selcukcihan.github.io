@@ -1,4 +1,5 @@
 import Header from "../../components/header"
+import { MainStyle } from "../layout"
 
 const LIST_STYLE = 'list-square mx-12'
 
@@ -156,7 +157,7 @@ const data = [
 
 export default function Career(props: any) {
   return (
-    <main className="p-4 lg:p-8 min-h-screen dark:text-white bg-gray-100 dark:bg-gray-950">
+    <main className={MainStyle}>
       <Header selected="career"/>
       <div className="grid grid-cols-1 gap-8 pt-8">
         {data.map((job, idx) => (<JobCard key={idx} {...job}/>))}
@@ -179,12 +180,12 @@ const JobCard = (props: any) => (
       </div>
       <p className="p-8 justify-self-end font-extralight text-sm content-center">{props.year}</p>
     </div>
-    <div className="text-sm">
+    <div className="text-sm lg:text-base">
       {props.content}
     </div>
     <div className="flex flex-row flex-wrap gap-1 px-8 flex-grow items-end p-8">
       {props.tech.map((tech: string, idx: number) => (
-        <span key={idx} className="bg-secondary-2 rounded p-1 text-xs">{tech}</span>
+        <span key={idx} className="bg-secondary-2 dark:bg-secondary-3 rounded p-1 text-xs dark:font-light">{tech}</span>
       ))}
     </div>
   </div>
