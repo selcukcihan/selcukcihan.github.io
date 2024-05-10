@@ -1,5 +1,5 @@
 import Header from "../../components/header"
-import { MainStyle } from "../layout"
+import { MainStyle } from "../common"
 
 const LIST_STYLE = 'list-square mx-12'
 

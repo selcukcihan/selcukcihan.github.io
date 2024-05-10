@@ -1,5 +1,5 @@
 import Header from "../../components/header"
-import { MainStyle } from "../layout"
+import { MainStyle } from "../common"
 
 const data = [
   {
@@ -11,7 +11,7 @@ const data = [
     year: '2008 - 2010',
     content: <ul className="list-square mx-12">
       <li>Researched distributed systems, graph theory and network flows.</li>
-      <li>Thesis titled "Parallel maximum flow solver for multi-core machines".</li>
+      <li>{`Thesis titled "Parallel maximum flow solver for multi-core machines"`}.</li>
     </ul>,
   },
   {

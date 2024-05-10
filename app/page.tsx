@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from 'next/link'
 import Email from "../components/email";
 import Header from "../components/header";
-import { MainStyle } from "./layout";
+import { MainStyle } from "./common";
 
 const HEADER_FIRST = "As a former Amazonian devoted to helping customers and solving problems, Selçuk brings a strong sense of ownership and a track record of delivering results."
 const HEADER_SECOND = "With over seven years of experience developing applications on AWS, he has a proven ability to take on technical duties from operations to development and architecture."
