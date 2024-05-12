@@ -54,7 +54,7 @@ const EducationCard = (props: any) => (
       </div>
       <p className="p-4 lg:p-8 justify-self-end font-extralight text-sm content-center">{props.year}</p>
     </div>
-    <div className="text-sm lg:text-base items-end py-8">
+    <div className="text-sm lg:text-base items-end pb-8">
       {props.content}
     </div>
   </div>
