@@ -3,41 +3,10 @@ import Link from 'next/link'
 import Email from "../components/email";
 import Header from "../components/header";
 import { MainStyle } from "./common";
+import { TESTIMONIALS } from "./data";
 
 const HEADER_FIRST = "As a former Amazonian devoted to helping customers and solving problems, Selçuk brings a strong sense of ownership and a track record of delivering results."
 const HEADER_SECOND = "With over seven years of experience developing applications on AWS, he has a proven ability to take on technical duties from operations to development and architecture."
-
-const TESTIMONIALS = [
-  {
-    text: "“I've been most impressed by his exceptional ability to tackle every phase of software development with in-depth knowledge, confidence and clear communication. I cannot emphasize enough how good Selcuk is at communicating in a clear and structured manner.”",
-    author: "Daniel Vliegenthart - Team Lead, parsel.ai",
-    full: `Through this letter, I wish to outline Selcuk Cihan's responsibilities during his time working on Parsel.ai and certify his excellence as senior software development engineer.
-
-    I had the pleasure of working closely with Selcuk for almost 3 years, starting in January 2020, during which he has proven his capabilities in every single aspect of his role at our company.
-    
-    During his time at Parsel.ai, he has worked on various mission-critical software systems, from customer-facing graphQL APIs, to complex serverless execution orchestration on AWS, data monitoring, priority queue implementation and microservice design and implementation in general.
-    
-    I've been most impressed by his exceptional ability to tackle every phase of software development with in-depth knowledge, confidence and clear communication. This starts with his incredible analytical thinking and how he structures this thought process into concrete requirements, expectations, considerations and specifications. I cannot emphasize enough how good Selcuk is at communicating in a clear and structured manner. Github issues, pull-request descriptions and code documentation were always clearly outlined, with the right level of detail to convey all critical information to his peers. He has also been pivotal in tackling new features and projects where the requirements were not yet clearly defined, to guide the team from brainstorming, to feature delivery, to maintenance and monitoring.
-    
-    Beyond the requirements stage, Selcuk has shown again and again that he thrives in all areas of the software implementation phase. His coding style is stellar, his expertise in various programming languages, including Python, JavaScript and TypeScript, is extensive and his knowledge of testing is top-tier. Furthermore, the entire team relied on Selcuk's deep knowledge of AWS services, integrations and new feature releases.
-    
-    I can highly recommend Selcuk for any future ventures in his field of expertise and have no doubt that he will thrive in any company and team that values building exceptional software.`
-  },
-  {
-    text: "“I had the pleasure to manage and to work with Selcuk Cihan for the past 2 years while at Tellimer. He rose brilliantly to all challenges thrown at him both technically and communication wise. I would say his superpower is his communications skills, both writing and talking.“",
-    author: "Decebal Dobrica - Software Architect, Tellimer",
-    full: `I had the pleasure to manage and to work with Selcuk Cihan for the past 2 years while at Tellimer. He rose brilliantly to all challenges thrown at him both technically and communication wise. I would say his superpower is his communications skills, both writing and talking. As a manager I had very little to ask of him as he is independent and knows how to exercise his ownership of a technical product by documenting the developments, the current state, technical debt and possible improvements to a system he works on. I relied heavily on his ever improving know-how around aws technologies in particular, but not exclusively, using typescript/javascript SDKs.`
-  },
-  {
-    text: "“He was the perfect remote contractor in many ways. His communication skills are top, he is very much a self-starter who can get stuck in on work with minimal guidance or oversight, and his code quality (and documentation!) is exceptional.”",
-    author: "Ian Watt - CTO, Tellimer",
-    full: `We brought Selçuk on as a contractor almost three years ago at Tellimer. The fact that he was with us until very recently is a testament to the quality of his work product and his commitment as an engineer. He was the perfect remote contractor in many ways. His communication skills are top, he is very much a self-starter who can get stuck in on work with minimal guidance or oversight, and his code quality (and documentation!) is exceptional. After a few weeks of working with us, everyone on the team considered him an honorary core team member.
-
-    Selçuk was the most experienced/knowledgeable AWS engineer on our team. Whenever we encountered a thorny issue or had a service that needed to be built where time-to-market and stability were paramount, Selçuk was the first engineer selected to implement it.
-    
-    As a company, we have been moving away from remote contractors toward full-time, local hires, but if we weren't, Selçuk would still be on the team!`
-  }
-]
 
 
 export default function Home() {
@@ -71,7 +40,7 @@ export default function Home() {
           <br/>
           <p>{HEADER_SECOND}</p>
         </div>
-        <div className="p-2 lg:p-4 flex flex-row lg:flex-col items-center justify-center">
+        <div className="flex flex-row lg:flex-col items-center justify-center">
           <a target="#blank" href="https://www.credly.com/badges/f2b93002-0754-4e37-8d31-031d2d520ee3">
             <Image
               src={`/architect.png`}
@@ -100,9 +69,12 @@ export default function Home() {
 }
 
 const Testimonial = (props: any) => (
-  <div className="grid grid-col-1 h-64 lg:h-72 m-8 p-4 justify-self-center bg-primary-0 dark:bg-secondary-1 shadow-lg rounded-sm shadow-secondary-1 dark:shadow-black text-sm lg:text-base text-justify text-pretty">
+  <div className="grid grid-col-1 h-72 m-8 p-4 justify-self-center bg-primary-0 dark:bg-secondary-1 shadow-lg rounded-sm shadow-secondary-1 dark:shadow-black text-sm lg:text-base text-justify text-pretty">
     <p className="font-light italic lg:pt-10">{props.text}</p>
-    <p className="font-light self-end lg:pb-10 text-center">{props.author}</p>
+    <p className="font-light self-end lg:pb-5 text-center">{props.author}</p>
+    <Link href={props.link} className="place-self-center">
+      <button type="button" className="w-24 rounded-md bg-secondary-2 dark:bg-secondary-3 text-black dark:text-white ring-gray-300 hover:bg-secondary-3 dark:hover:bg-secondary-2 px-2.5 py-1.5 text-xs shadow-sm ring-1 ring-inset">Read more</button>
+    </Link>
   </div>
 )
 

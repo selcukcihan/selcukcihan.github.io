@@ -7,6 +7,7 @@ export default function Header(props: any) {
       <Link className={className('home')} href="/">Home</Link>
       <Link className={className('career')} href="/career">Career</Link>
       <Link className={className('education')} href="/education">Education</Link>
+      <Link className={className('testimonials')} href="/testimonials">Testimonials</Link>
     </div>
   )
 }
