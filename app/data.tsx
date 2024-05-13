@@ -20,6 +20,9 @@ export const TESTIMONIALS = [
       <p>
         I can highly recommend Selcuk for any future ventures in his field of expertise and have no doubt that he will thrive in any company and team that values building exceptional software.
       </p>
+      <div className="indent-0 pt-4 underline text-center">
+        <a href="/references/daniel_vliegenthart.pdf" download="testimonial.pdf">Download</a>
+      </div>
     </div>,
     link: '/testimonials#daniel-vliegenthart',
   },
