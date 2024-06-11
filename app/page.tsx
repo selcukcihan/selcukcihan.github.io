@@ -10,16 +10,19 @@ const bold = (text: string) => <span className="font-semibold">{text}</span>
 const HEADER_FIRST = <p>As a former {bold("Amazonian")} devoted to helping customers and solving problems, Selçuk brings a strong sense of ownership and a track record of delivering results.</p>
 const HEADER_SECOND = <p>With over seven years of experience developing applications on {bold("AWS")}, he has a proven ability to take on technical duties from operations to development and architecture.</p>
 
-const hiringLinks = (
-  <>
-    <Link href="https://www.toptal.com/resume/selcuk-cihan" target="blank">
-      <button type="button" className="w-44 lg:w-48 rounded-md bg-secondary-2 dark:bg-secondary-3 text-black dark:text-white ring-gray-300 hover:bg-secondary-3 dark:hover:bg-secondary-2 px-2.5 py-1.5 text-xl shadow-sm ring-1 ring-inset">Hire on Toptal</button>
-    </Link>
-    <Link href="https://www.upwork.com/freelancers/~01852fc4c9119af2d7" target="blank">
-      <button type="button" className="w-44 lg:w-48 rounded-md bg-secondary-2 dark:bg-secondary-3 text-black dark:text-white ring-gray-300 hover:bg-secondary-3 dark:hover:bg-secondary-2 px-2.5 py-1.5 text-xl shadow-sm ring-1 ring-inset">Hire on Upwork</button>
-    </Link>
-  </>
-)
+const hiringLinks = () => {
+  const className = "w-44 lg:w-56 rounded-md bg-secondary-2 dark:bg-secondary-3 text-black dark:text-white ring-gray-300 hover:bg-secondary-3 dark:hover:bg-secondary-2 px-2.5 py-1.5 lg:text-xl text-base shadow-sm ring-1 ring-inset"
+  return (
+    <>
+      <Link href="https://www.toptal.com/resume/selcuk-cihan" target="blank">
+        <button type="button" className={className}>Hire me on Toptal</button>
+      </Link>
+      <Link href="https://www.upwork.com/freelancers/~01852fc4c9119af2d7" target="blank">
+        <button type="button" className={className}>Hire me on Upwork</button>
+      </Link>
+    </>
+  )
+}
 
 export default function Home() {
   return (
@@ -54,7 +57,7 @@ export default function Home() {
             {HEADER_SECOND}
           </div>
           <div className="flex gap-x-8">
-            {hiringLinks}
+            {hiringLinks()}
           </div>
         </div>
         <div className="flex flex-row lg:flex-col gap-x-12 items-center justify-center">
@@ -79,7 +82,7 @@ export default function Home() {
       <div className="lg:hidden text-center">
       <Email className="text-2xl font-light pb-4 underline underline-offset-4"/>
         <div className="flex justify-center gap-x-2">
-          {hiringLinks}
+          {hiringLinks()}
         </div>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3">
