@@ -25,6 +25,7 @@ const hiringLinks = () => {
 }
 
 export default function Home() {
+  const iconStyle = "h-6 w-6 lg:h-8 lg:w-8"
   return (
     <main className={MainStyle}>
       <Header selected="home"/>
@@ -46,8 +47,10 @@ export default function Home() {
             <Email className="hidden lg:block py-2 text-3xl font-extralight underline underline-offset-8"/>
           </div>
           <div className="flex flex-col gap-x-8 gap-y-4 lg:flex-row lg:pt-2 justify-center items-center">
-            <a href="https://github.com/selcukcihan" target="#blank"><GithubIcon className="h-6 w-6 lg:h-8 lg:w-8"/></a>
-            <a href="https://linkedin.com/in/selcukcihan" target="#blank"><LinkedinIcon className="h-6 w-6 lg:h-8 lg:w-8"/></a>
+            <a href="https://github.com/selcukcihan" target="#blank"><GithubIcon className={iconStyle}/></a>
+            <a href="https://linkedin.com/in/selcukcihan" target="#blank"><LinkedinIcon className={iconStyle}/></a>
+            <a className="hidden lg:block" href="https://stackoverflow.com/users/4281182" target="#blank"><StackoverflowIcon className={iconStyle}/></a>
+            <a className="hidden lg:block" href="https://twitter.com/scihan" target="#blank"><TwitterIcon className={iconStyle}/></a>
           </div>
         </div>
         <div className="hidden lg:flex lg:flex-col p-4 text-xl font-extralight text-justify items-center">
