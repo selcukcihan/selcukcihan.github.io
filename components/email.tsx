@@ -2,7 +2,7 @@
 
 const Email = (props: any) => {
   return (
-    <p {...props} className="py-1 lg:py-2 text-base lg:text-3xl font-extralight">
+    <p {...props}>
       <a href="#" className="cryptedmail" title="Email link" data-name="selcukcihan" data-domain="gmail.com"
          onClick={() => {
            window.location.href = 'mailto:' + 'selcukcihan' + '@' + 'gmail.com';

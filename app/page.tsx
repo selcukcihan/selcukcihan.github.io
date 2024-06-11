@@ -5,8 +5,10 @@ import Header from "../components/header";
 import { MainStyle } from "./common";
 import { TESTIMONIALS } from "./data";
 
-const HEADER_FIRST = "As a former Amazonian devoted to helping customers and solving problems, Selçuk brings a strong sense of ownership and a track record of delivering results."
-const HEADER_SECOND = "With over seven years of experience developing applications on AWS, he has a proven ability to take on technical duties from operations to development and architecture."
+const bold = (text: string) => <span className="font-semibold">{text}</span>
+
+const HEADER_FIRST = <p>As a former {bold("Amazonian")} devoted to helping customers and solving problems, Selçuk brings a strong sense of ownership and a track record of delivering results.</p>
+const HEADER_SECOND = <p>With over seven years of experience developing applications on {bold("AWS")}, he has a proven ability to take on technical duties from operations to development and architecture.</p>
 
 const hiringLinks = (
   <>
@@ -35,30 +37,31 @@ export default function Home() {
             <p className="py-1 lg:py-2 text-2xl lg:text-4xl">Selçuk Cihan</p>
             <div className="py-1 lg:py-2 text-xl">
               <p>Software Engineer</p>
+              <p className="block lg:hidden text-base italic">ex-Amazon</p>
             </div>
-            <Email/>
+            <Email className="hidden lg:block py-2 text-3xl font-extralight underline underline-offset-8"/>
           </div>
           <div className="flex flex-col gap-x-8 gap-y-4 lg:flex-row lg:pt-2 justify-center items-center">
             <a href="https://github.com/selcukcihan" target="#blank"><GithubIcon className="h-6 w-6 lg:h-8 lg:w-8"/></a>
             <a href="https://linkedin.com/in/selcukcihan" target="#blank"><LinkedinIcon className="h-6 w-6 lg:h-8 lg:w-8"/></a>
           </div>
         </div>
-        <div className="hidden lg:flex lg:flex-col p-4 pt-16 text-xl font-extralight text-justify items-center">
-          <div className="grow">
-            <p>{HEADER_FIRST}</p>
+        <div className="hidden lg:flex lg:flex-col p-4 text-xl font-extralight text-justify items-center">
+          <div className="grow content-evenly">
+            {HEADER_FIRST}
             <br/>
-            <p>{HEADER_SECOND}</p>
+            {HEADER_SECOND}
           </div>
           <div className="flex gap-x-8">
             {hiringLinks}
           </div>
         </div>
-        <div className="flex flex-row lg:flex-col items-center justify-center">
+        <div className="flex flex-row lg:flex-col gap-x-12 items-center justify-center">
           <a target="#blank" href="https://www.credly.com/badges/f2b93002-0754-4e37-8d31-031d2d520ee3">
             <Image
               src={`/architect.png`}
               alt="AWS Solutions Architect Professional Certificate"
-              className="selc-image-container"
+              className="selc-image-container m-2 lg:m-8"
               width={160}
               height={160} />
           </a>
@@ -73,6 +76,7 @@ export default function Home() {
         </div>
       </div>
       <div className="lg:hidden text-center">
+      <Email className="text-2xl font-light py-2 underline underline-offset-4"/>
         <div className="flex justify-center gap-x-2">
           {hiringLinks}
         </div>
@@ -87,7 +91,7 @@ export default function Home() {
 }
 
 const Testimonial = (props: any) => (
-  <div className="grid grid-col-1 h-72 m-4 lg:m-8 p-4 justify-self-center bg-primary-0 dark:bg-secondary-1 shadow-lg rounded-sm shadow-secondary-1 dark:shadow-black text-sm lg:text-base text-justify text-pretty">
+  <div className="grid grid-col-1 h-64 lg:h-72 m-4 lg:m-8 p-4 justify-self-center bg-primary-0 dark:bg-secondary-1 shadow-lg rounded-sm shadow-secondary-1 dark:shadow-black text-sm lg:text-base text-justify text-pretty">
     <p className="font-light italic lg:pt-10">{props.text}</p>
     <p className="font-light self-end lg:pb-5 text-center">{props.author}</p>
     <Link href={props.link} className="place-self-center">
