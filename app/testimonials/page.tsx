@@ -1,5 +1,5 @@
 import Header from "../../components/header"
-import { MainStyle } from "../common"
+import { ContentStyle, MainStyle } from "../common"
 import { TESTIMONIALS } from "../data"
 
 
@@ -7,8 +7,8 @@ export default function Testimonials(props: any) {
   return (
     <main className={MainStyle}>
       <Header selected="testimonials"/>
-      <div className="px-4 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 pt-8">
+      <div className={ContentStyle}>
+        <div className="grid grid-cols-1 gap-8 py-8">
           {TESTIMONIALS.map((testimonial, idx) => (<TestimonialCard key={idx} {...testimonial}/>))}
         </div>
       </div>

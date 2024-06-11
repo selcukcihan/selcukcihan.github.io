@@ -1,5 +1,5 @@
 import Header from "../../components/header"
-import { MainStyle } from "../common"
+import { ContentStyle, MainStyle } from "../common"
 
 const LIST_STYLE = 'list-square mx-12'
 
@@ -135,7 +135,7 @@ const data = [
     content: <ul className={LIST_STYLE}>
       <li>Supported the workflow engine (C#, Windows service) serving banking applications such as loans, customer complaints etc.</li>
       <li>Set up elastic to index workflow engine documents, enabling powerful search mechanisms for the end user.</li>
-      <li>Designed and implemented a workforce management system that empowers the bank’s operation center. The application uses Microsoft’s solver foundation to solve the task assignment problem. This project got <a href="https://www.bai.org/globalinnovations/awards/past-winners/winners-2017/2017-internal-process-innovation-award"></a>BAI global innovation award.</li>
+      <li>Designed and implemented a workforce management system that empowers the bank’s operation center. The application uses Microsoft’s solver foundation to solve the task assignment problem. This project got <a title="BAI 2017 Internal Process Innovation Award" href="https://www.bai.org/globalinnovations/awards/past-winners/winners-2017/2017-internal-process-innovation-award"></a>BAI global innovation award.</li>
     </ul>,
     tech: "Microsoft .Net, C#, MSSQL, ElasticSearch, REST, Agile, Unit testing, JavaScript, DevOps".split(', ')
   },
@@ -159,8 +159,8 @@ export default function Career(props: any) {
   return (
     <main className={MainStyle}>
       <Header selected="career"/>
-      <div className="px-4 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 pt-8">
+      <div className={ContentStyle}>
+        <div className="grid grid-cols-1 gap-8 py-8">
           {data.map((job, idx) => (<JobCard key={idx} {...job}/>))}
         </div>
       </div>

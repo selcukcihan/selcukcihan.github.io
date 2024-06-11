@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from 'next/link'
 import Email from "../components/email";
 import Header from "../components/header";
-import { MainStyle } from "./common";
+import { ContentStyle, MainStyle } from "./common";
 import { TESTIMONIALS } from "./data";
 
 const bold = (text: string) => <span className="font-semibold">{text}</span>
@@ -15,10 +15,10 @@ const hiringLinks = () => {
   return (
     <>
       <Link href="https://www.toptal.com/resume/selcuk-cihan" target="blank">
-        <button type="button" className={className}>Hire me on Toptal</button>
+        <button title="Click to hire me on Toptal" type="button" className={className}>Hire me on Toptal</button>
       </Link>
       <Link href="https://www.upwork.com/freelancers/~01852fc4c9119af2d7" target="blank">
-        <button type="button" className={className}>Hire me on Upwork</button>
+        <button title="Click to hire me on Upwork" type="button" className={className}>Hire me on Upwork</button>
       </Link>
     </>
   )
@@ -29,70 +29,70 @@ export default function Home() {
   return (
     <main className={MainStyle}>
       <Header selected="home"/>
-      <div className="px-4 lg:px-8">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-16">
-        <div className="p-2 lg:p-4 flex flex-row lg:flex-col items-center">
-          <Image
-            src={`/profile.png`}
-            alt="Selçuk Cihan"
-            width={160}
-            height={160}
-            className="rounded-full selc-image-container relative top-2 lg:top-0" />
-          <div className="px-6 lg:px-0 py-1 lg:py-2 lg:grow text-center lg:flex lg:flex-col">
-            <p className="py-1 lg:py-2 text-2xl lg:text-4xl">Selçuk Cihan</p>
-            <div className="py-1 lg:py-2 text-xl lg:grow">
-              <p>Software Engineer</p>
-              <p className="block lg:hidden text-base italic">ex-Amazon</p>
+      <div className={ContentStyle}>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-16">
+          <div className="p-2 lg:p-4 flex flex-row lg:flex-col items-center">
+            <Image
+              src={`/profile.png`}
+              alt="Selçuk Cihan"
+              width={160}
+              height={160}
+              className="rounded-full selc-image-container relative top-2 lg:top-0" />
+            <div className="px-6 lg:px-0 py-1 lg:py-2 lg:grow text-center lg:flex lg:flex-col">
+              <p className="py-1 lg:py-2 text-2xl lg:text-4xl">Selçuk Cihan</p>
+              <div className="py-1 lg:py-2 text-xl lg:grow">
+                <p>Software Engineer</p>
+                <p className="block lg:hidden text-base italic">ex-Amazon</p>
+              </div>
+              <Email className="hidden lg:block py-2 text-3xl font-extralight underline underline-offset-8"/>
             </div>
-            <Email className="hidden lg:block py-2 text-3xl font-extralight underline underline-offset-8"/>
+            <div className="flex flex-col gap-x-8 gap-y-4 lg:flex-row lg:pt-2 justify-center items-center">
+              <a href="https://github.com/selcukcihan" target="#blank"><GithubIcon className={iconStyle}/></a>
+              <a href="https://linkedin.com/in/selcukcihan" target="#blank"><LinkedinIcon className={iconStyle}/></a>
+              <a className="hidden lg:block" href="https://stackoverflow.com/users/4281182" target="#blank"><StackoverflowIcon className={iconStyle}/></a>
+              <a className="hidden lg:block" href="https://twitter.com/scihan" target="#blank"><TwitterIcon className={iconStyle}/></a>
+            </div>
           </div>
-          <div className="flex flex-col gap-x-8 gap-y-4 lg:flex-row lg:pt-2 justify-center items-center">
-            <a href="https://github.com/selcukcihan" target="#blank"><GithubIcon className={iconStyle}/></a>
-            <a href="https://linkedin.com/in/selcukcihan" target="#blank"><LinkedinIcon className={iconStyle}/></a>
-            <a className="hidden lg:block" href="https://stackoverflow.com/users/4281182" target="#blank"><StackoverflowIcon className={iconStyle}/></a>
-            <a className="hidden lg:block" href="https://twitter.com/scihan" target="#blank"><TwitterIcon className={iconStyle}/></a>
+          <div className="hidden lg:flex lg:flex-col p-4 text-xl font-extralight text-justify items-center">
+            <div className="grow content-evenly">
+              {HEADER_FIRST}
+              <br/>
+              {HEADER_SECOND}
+            </div>
+            <div className="flex gap-x-8">
+              {hiringLinks()}
+            </div>
+          </div>
+          <div className="flex flex-row lg:flex-col gap-x-12 items-center justify-center">
+            <a target="#blank" href="https://www.credly.com/badges/f2b93002-0754-4e37-8d31-031d2d520ee3">
+              <Image
+                src={`/architect.png`}
+                alt="AWS Solutions Architect Professional Certificate"
+                className="selc-image-container m-2 lg:m-8"
+                width={160}
+                height={160} />
+            </a>
+            <a target="#blank" href="https://www.credly.com/badges/3fb06d81-a97f-4182-ada1-bdcc221152de">
+              <Image
+                src={`/developer.png`}
+                alt="AWS Developer Associate Certificate"
+                className="selc-image-container m-2 lg:m-8"
+                width={160}
+                height={160} />
+            </a>
           </div>
         </div>
-        <div className="hidden lg:flex lg:flex-col p-4 text-xl font-extralight text-justify items-center">
-          <div className="grow content-evenly">
-            {HEADER_FIRST}
-            <br/>
-            {HEADER_SECOND}
-          </div>
-          <div className="flex gap-x-8">
+        <div className="lg:hidden text-center">
+        <Email className="text-2xl font-light pb-4 underline underline-offset-4"/>
+          <div className="flex justify-center gap-x-2">
             {hiringLinks()}
           </div>
         </div>
-        <div className="flex flex-row lg:flex-col gap-x-12 items-center justify-center">
-          <a target="#blank" href="https://www.credly.com/badges/f2b93002-0754-4e37-8d31-031d2d520ee3">
-            <Image
-              src={`/architect.png`}
-              alt="AWS Solutions Architect Professional Certificate"
-              className="selc-image-container m-2 lg:m-8"
-              width={160}
-              height={160} />
-          </a>
-          <a target="#blank" href="https://www.credly.com/badges/3fb06d81-a97f-4182-ada1-bdcc221152de">
-            <Image
-              src={`/developer.png`}
-              alt="AWS Developer Associate Certificate"
-              className="selc-image-container m-2 lg:m-8"
-              width={160}
-              height={160} />
-          </a>
+        <div className="grid grid-cols-1 lg:grid-cols-3">
+          {TESTIMONIALS.map((testimonial, idx) => (
+              <Testimonial key={idx} {...testimonial} />
+            ))}
         </div>
-      </div>
-      <div className="lg:hidden text-center">
-      <Email className="text-2xl font-light pb-4 underline underline-offset-4"/>
-        <div className="flex justify-center gap-x-2">
-          {hiringLinks()}
-        </div>
-      </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3">
-        {TESTIMONIALS.map((testimonial, idx) => (
-            <Testimonial key={idx} {...testimonial} />
-          ))}
-      </div>
       </div>
     </main>
   );
@@ -103,7 +103,7 @@ const Testimonial = (props: any) => (
     <p className="font-light italic lg:pt-10">{props.text}</p>
     <p className="font-light self-end lg:pb-5 text-center">{props.author}</p>
     <Link href={props.link} className="place-self-center">
-      <button type="button" className="w-24 rounded-md bg-secondary-2 dark:bg-secondary-3 text-black dark:text-white ring-gray-300 hover:bg-secondary-3 dark:hover:bg-secondary-2 px-2.5 py-1.5 text-xs shadow-sm ring-1 ring-inset">Read more</button>
+      <button title="Click to read more" type="button" className="w-28 rounded-md bg-secondary-2 dark:bg-secondary-3 text-black dark:text-white ring-gray-300 hover:bg-secondary-3 dark:hover:bg-secondary-2 px-2.5 py-1.5 text-xs shadow-sm ring-1 ring-inset">Full testimonial</button>
     </Link>
   </div>
 )

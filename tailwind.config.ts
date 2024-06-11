@@ -11,8 +11,8 @@ const config: Config = {
       colors: {
         'primary-0': '#FEFAF6',
         'secondary-1': '#092635',
-        'secondary-2': '#ECB159',
-        'secondary-3': '#CE7C00',
+        'secondary-2': '#A86600',
+        'secondary-3': '#754800',
       },
     },
     listStyleType: {
@@ -24,3 +24,8 @@ const config: Config = {
   plugins: [],
 };
 export default config;
+
+/*
+        'secondary-2': '#ECB159',
+        'secondary-3': '#CE7C00',
+*/
