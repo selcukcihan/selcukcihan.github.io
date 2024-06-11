@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Raleway } from "next/font/google"
+import { GoogleAnalytics } from '@next/third-parties/google'
 import "./globals.css"
 
 const font = Raleway({ subsets: ["latin"] })
@@ -72,6 +73,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GoogleAnalytics gaId="G-KG8E2CQLK0" />
       <body className={font.className}>{children}</body>
     </html>
   )
