@@ -32,8 +32,10 @@ export default function Education(props: any) {
   return (
     <main className={MainStyle}>
       <Header selected="education"/>
-      <div className="grid grid-cols-1 gap-8 pt-8">
-        {data.map((job, idx) => (<EducationCard key={idx} {...job}/>))}
+      <div className="px-4 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 pt-8">
+          {data.map((job, idx) => (<EducationCard key={idx} {...job}/>))}
+        </div>
       </div>
     </main>
   )

@@ -159,8 +159,10 @@ export default function Career(props: any) {
   return (
     <main className={MainStyle}>
       <Header selected="career"/>
-      <div className="grid grid-cols-1 gap-8 pt-8">
-        {data.map((job, idx) => (<JobCard key={idx} {...job}/>))}
+      <div className="px-4 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 pt-8">
+          {data.map((job, idx) => (<JobCard key={idx} {...job}/>))}
+        </div>
       </div>
     </main>
   )

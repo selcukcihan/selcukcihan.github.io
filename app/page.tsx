@@ -25,6 +25,7 @@ export default function Home() {
   return (
     <main className={MainStyle}>
       <Header selected="home"/>
+      <div className="px-4 lg:px-8">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-16">
         <div className="p-2 lg:p-4 flex flex-row lg:flex-col items-center">
           <Image
@@ -33,9 +34,9 @@ export default function Home() {
             width={160}
             height={160}
             className="rounded-full selc-image-container relative top-2 lg:top-0" />
-          <div className="px-6 lg:px-0 py-1 lg:py-2 lg:grow text-center">
+          <div className="px-6 lg:px-0 py-1 lg:py-2 lg:grow text-center lg:flex lg:flex-col">
             <p className="py-1 lg:py-2 text-2xl lg:text-4xl">Selçuk Cihan</p>
-            <div className="py-1 lg:py-2 text-xl">
+            <div className="py-1 lg:py-2 text-xl lg:grow">
               <p>Software Engineer</p>
               <p className="block lg:hidden text-base italic">ex-Amazon</p>
             </div>
@@ -76,7 +77,7 @@ export default function Home() {
         </div>
       </div>
       <div className="lg:hidden text-center">
-      <Email className="text-2xl font-light py-2 underline underline-offset-4"/>
+      <Email className="text-2xl font-light pb-4 underline underline-offset-4"/>
         <div className="flex justify-center gap-x-2">
           {hiringLinks}
         </div>
@@ -85,6 +86,7 @@ export default function Home() {
         {TESTIMONIALS.map((testimonial, idx) => (
             <Testimonial key={idx} {...testimonial} />
           ))}
+      </div>
       </div>
     </main>
   );
