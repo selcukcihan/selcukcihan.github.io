@@ -35,14 +35,14 @@ body {
 }
 
 .selc-image-container {
-  width: 120px;
-  height: 120px;
+  width: 96px;
+  height: 96px;
 }
 
 @media (min-width: 976px) {
   .selc-image-container {
-    width: 160px;
-    height: 160px;
+    width: 192px;
+    height: 192px;
   }
 }
 

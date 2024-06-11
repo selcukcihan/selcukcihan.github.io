@@ -8,37 +8,50 @@ import { TESTIMONIALS } from "./data";
 const HEADER_FIRST = "As a former Amazonian devoted to helping customers and solving problems, Selçuk brings a strong sense of ownership and a track record of delivering results."
 const HEADER_SECOND = "With over seven years of experience developing applications on AWS, he has a proven ability to take on technical duties from operations to development and architecture."
 
+const hiringLinks = (
+  <>
+    <Link href="https://www.toptal.com/resume/selcuk-cihan" target="blank">
+      <button type="button" className="w-44 lg:w-48 rounded-md bg-secondary-2 dark:bg-secondary-3 text-black dark:text-white ring-gray-300 hover:bg-secondary-3 dark:hover:bg-secondary-2 px-2.5 py-1.5 text-xl shadow-sm ring-1 ring-inset">Hire on Toptal</button>
+    </Link>
+    <Link href="https://www.upwork.com/freelancers/~01852fc4c9119af2d7" target="blank">
+      <button type="button" className="w-44 lg:w-48 rounded-md bg-secondary-2 dark:bg-secondary-3 text-black dark:text-white ring-gray-300 hover:bg-secondary-3 dark:hover:bg-secondary-2 px-2.5 py-1.5 text-xl shadow-sm ring-1 ring-inset">Hire on Upwork</button>
+    </Link>
+  </>
+)
 
 export default function Home() {
   return (
     <main className={MainStyle}>
       <Header selected="home"/>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-16">
-        <div className="p-2 lg:p-4 flex flex-row lg:flex-col items-center space-x-4 lg:space-x-0">
+        <div className="p-2 lg:p-4 flex flex-row lg:flex-col items-center">
           <Image
             src={`/profile.png`}
             alt="Selçuk Cihan"
             width={160}
             height={160}
             className="rounded-full selc-image-container relative top-2 lg:top-0" />
-          <div className="px-6 lg:px-0 text-center">
-            <p className="p-1 lg:p-2 text-2xl lg:text-4xl">Selçuk Cihan</p>
-            <div className="p-1 lg:p-2 lg:text-xl font-extralight">
+          <div className="px-6 lg:px-0 py-1 lg:py-2 lg:grow text-center">
+            <p className="py-1 lg:py-2 text-2xl lg:text-4xl">Selçuk Cihan</p>
+            <div className="py-1 lg:py-2 text-xl">
               <p>Software Engineer</p>
             </div>
             <Email/>
-            <div className="space-x-4 lg:space-x-8 p-1 lg:p-2 flex justify-center">
-              <a href="https://github.com/selcukcihan" target="#blank"><GithubIcon className="h-5 w-5 lg:h-6 lg:w-6"/></a>
-              <a href="https://linkedin.com/in/selcukcihan" target="#blank"><LinkedinIcon className="h-5 w-5 lg:h-6 lg:w-6"/></a>
-              <a href="https://stackoverflow.com/users/4281182" target="#blank"><StackoverflowIcon className="h-5 w-5 lg:h-6 lg:w-6"/></a>
-              <a href="https://twitter.com/scihan" target="#blank"><TwitterIcon className="h-5 w-5 lg:h-6 lg:w-6"/></a>
-            </div>
+          </div>
+          <div className="flex flex-col gap-x-8 gap-y-4 lg:flex-row lg:pt-2 justify-center items-center">
+            <a href="https://github.com/selcukcihan" target="#blank"><GithubIcon className="h-6 w-6 lg:h-8 lg:w-8"/></a>
+            <a href="https://linkedin.com/in/selcukcihan" target="#blank"><LinkedinIcon className="h-6 w-6 lg:h-8 lg:w-8"/></a>
           </div>
         </div>
-        <div className="hidden lg:block p-2 lg:py-16 lg:text-xl font-extralight text-justify">
-          <p>{HEADER_FIRST}</p>
-          <br/>
-          <p>{HEADER_SECOND}</p>
+        <div className="hidden lg:flex lg:flex-col p-4 pt-16 text-xl font-extralight text-justify items-center">
+          <div className="grow">
+            <p>{HEADER_FIRST}</p>
+            <br/>
+            <p>{HEADER_SECOND}</p>
+          </div>
+          <div className="flex gap-x-8">
+            {hiringLinks}
+          </div>
         </div>
         <div className="flex flex-row lg:flex-col items-center justify-center">
           <a target="#blank" href="https://www.credly.com/badges/f2b93002-0754-4e37-8d31-031d2d520ee3">
@@ -59,6 +72,11 @@ export default function Home() {
           </a>
         </div>
       </div>
+      <div className="lg:hidden text-center">
+        <div className="flex justify-center gap-x-2">
+          {hiringLinks}
+        </div>
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-3">
         {TESTIMONIALS.map((testimonial, idx) => (
             <Testimonial key={idx} {...testimonial} />
@@ -69,7 +87,7 @@ export default function Home() {
 }
 
 const Testimonial = (props: any) => (
-  <div className="grid grid-col-1 h-72 m-8 p-4 justify-self-center bg-primary-0 dark:bg-secondary-1 shadow-lg rounded-sm shadow-secondary-1 dark:shadow-black text-sm lg:text-base text-justify text-pretty">
+  <div className="grid grid-col-1 h-72 m-4 lg:m-8 p-4 justify-self-center bg-primary-0 dark:bg-secondary-1 shadow-lg rounded-sm shadow-secondary-1 dark:shadow-black text-sm lg:text-base text-justify text-pretty">
     <p className="font-light italic lg:pt-10">{props.text}</p>
     <p className="font-light self-end lg:pb-5 text-center">{props.author}</p>
     <Link href={props.link} className="place-self-center">
