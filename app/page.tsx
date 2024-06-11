@@ -11,7 +11,7 @@ const HEADER_FIRST = <p>As a former {bold("Amazonian")} devoted to helping custo
 const HEADER_SECOND = <p>With over seven years of experience developing applications on {bold("AWS")}, he has a proven ability to take on technical duties from operations to development and architecture.</p>
 
 const hiringLinks = () => {
-  const className = "w-44 lg:w-56 rounded-md bg-secondary-2 dark:bg-secondary-3 text-black dark:text-white ring-gray-300 hover:bg-secondary-3 dark:hover:bg-secondary-2 px-2.5 py-1.5 lg:text-xl text-base shadow-sm ring-1 ring-inset"
+  const className = "w-44 lg:w-56 rounded-md bg-secondary-2 dark:bg-secondary-3 text-white ring-gray-300 hover:bg-secondary-3 dark:hover:bg-secondary-2 px-2.5 py-1.5 lg:text-xl dark:font-semibold text-base shadow-sm ring-1 ring-inset"
   return (
     <>
       <Link href="https://www.toptal.com/resume/selcuk-cihan" target="blank">
@@ -103,7 +103,7 @@ const Testimonial = (props: any) => (
     <p className="font-light italic lg:pt-10">{props.text}</p>
     <p className="font-light self-end lg:pb-5 text-center">{props.author}</p>
     <Link href={props.link} className="place-self-center">
-      <button title="Click to read more" type="button" className="w-28 rounded-md bg-secondary-2 dark:bg-secondary-3 text-black dark:text-white ring-gray-300 hover:bg-secondary-3 dark:hover:bg-secondary-2 px-2.5 py-1.5 text-xs shadow-sm ring-1 ring-inset">Full testimonial</button>
+      <button title="Click to read more" type="button" className="w-28 rounded-md bg-secondary-2 dark:bg-secondary-3 text-white ring-gray-300 hover:bg-secondary-3 dark:hover:bg-secondary-2 px-2.5 py-1.5 text-xs dark:font-semibold shadow-sm ring-1 ring-inset">Full testimonial</button>
     </Link>
   </div>
 )
