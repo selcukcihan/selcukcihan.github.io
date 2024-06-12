@@ -6,7 +6,7 @@ import "./globals.css"
 const font = Raleway({ subsets: ["latin"] })
 
 const title = "Selçuk Cihan | Freelance Software Engineer"
-const description = "This is the portfolio page of Selçuk Cihan, software engineer."
+const description = "Portfolio of Selçuk Cihan, software engineer."
 
 const images = [{
   url: `https://selcukcihan.com/profile.png`,
