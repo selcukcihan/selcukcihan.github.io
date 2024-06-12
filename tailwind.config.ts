@@ -10,9 +10,11 @@ const config: Config = {
     extend: {
       colors: {
         'primary-0': '#FEFAF6',
+        'primary-1': '#FFF5E1',
         'secondary-1': '#092635',
         'secondary-2': '#A86600',
         'secondary-3': '#754800',
+        'light-0': '#ffb84d',
       },
     },
     listStyleType: {
