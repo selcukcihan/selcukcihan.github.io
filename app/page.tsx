@@ -11,48 +11,79 @@ const HEADER_FIRST = <p>As a former {bold("Amazonian")} devoted to helping custo
 const HEADER_SECOND = <p>With over seven years of experience developing applications on {bold("AWS")}, he has a proven ability to take on technical duties from operations to development and architecture.</p>
 
 const hiringLinks = () => {
-  const className = "w-44 lg:w-56 rounded-md bg-secondary-2 dark:bg-secondary-3 text-white ring-gray-300 hover:bg-secondary-3 dark:hover:bg-secondary-2 px-2.5 py-1.5 lg:text-xl dark:font-semibold text-base shadow-sm ring-1 ring-inset"
+  const className = "w-40 lg:w-56 rounded-md bg-secondary-2 dark:bg-secondary-3 text-white ring-gray-300 hover:bg-secondary-3 dark:hover:bg-secondary-2 px-2.5 py-1.5 lg:text-xl dark:font-semibold text-base shadow-sm ring-1 ring-inset"
+  const getButton = (text: string, title: string, extraClass: string) => <button title={title} type="button" className={className + extraClass}>{text}</button>
   return (
     <>
       <Link href="https://www.toptal.com/resume/selcuk-cihan" target="blank">
-        <button title="Click to hire me on Toptal" type="button" className={className}>Hire me on Toptal</button>
+        {getButton("Hire me on Toptal", "Click to hire me on Toptal", " hidden lg:block")}
+        {getButton("Hire on Toptal", "Click to hire me on Toptal", " lg:hidden")}
       </Link>
       <Link href="https://www.upwork.com/freelancers/~01852fc4c9119af2d7" target="blank">
-        <button title="Click to hire me on Upwork" type="button" className={className}>Hire me on Upwork</button>
+        {getButton("Hire me on Upwork", "Click to hire me on Upwork", " hidden lg:block")}
+        {getButton("Hire on Upwork", "Click to hire me on Upwork", " lg:hidden")}
       </Link>
     </>
   )
 }
 
+const iconStyle = "h-6 w-6 lg:h-8 lg:w-8 fill-black hover:fill-secondary-2 dark:fill-white dark:hover:fill-light-0"
+
+const MobileHero = () => (
+  <div className="lg:hidden p-2 flex flex-row items-center">
+    <Image
+      src={`/profile.png`}
+      alt="Selçuk Cihan"
+      width={160}
+      height={160}
+      className="rounded-full selc-image-container relative top-2" />
+    <div className="px-6 py-1 text-center">
+      <p className="py-1 text-2xl">Selçuk Cihan</p>
+      <div className="py-1 text-xl">
+        <p>Software Engineer</p>
+        <p className="text-base italic">ex-Amazon</p>
+      </div>
+      <Email mobileScreen={false}/>
+    </div>
+    <div className="flex flex-col gap-x-8 gap-y-4 justify-center items-center">
+      <a href="https://github.com/selcukcihan" target="#blank"><GithubIcon className={iconStyle}/></a>
+      <a href="https://linkedin.com/in/selcukcihan" target="#blank"><LinkedinIcon className={iconStyle}/></a>
+    </div>
+  </div>
+)
+
+const LargeHero = () => (
+  <div className="hidden lg:flex p-4 flex-col items-center">
+    <Image
+      src={`/profile.png`}
+      alt="Selçuk Cihan"
+      width={160}
+      height={160}
+      className="rounded-full selc-image-container relative" />
+    <div className="py-2 grow text-center flex flex-col">
+      <p className="py-2 text-4xl">Selçuk Cihan</p>
+      <div className="py-2 text-xl grow">
+        <p>Software Engineer</p>
+      </div>
+      <Email mobileScreen={false}/>
+    </div>
+    <div className="flex gap-x-8 gap-y-4 flex-row pt-2 justify-center items-center">
+      <a href="https://github.com/selcukcihan" target="#blank"><GithubIcon className={iconStyle}/></a>
+      <a href="https://linkedin.com/in/selcukcihan" target="#blank"><LinkedinIcon className={iconStyle}/></a>
+      <a href="https://stackoverflow.com/users/4281182" target="#blank"><StackoverflowIcon className={iconStyle}/></a>
+      <a href="https://twitter.com/scihan" target="#blank"><TwitterIcon className={iconStyle}/></a>
+    </div>
+  </div>
+)
+
 export default function Home() {
-  const iconStyle = "h-6 w-6 lg:h-8 lg:w-8 fill-black hover:fill-secondary-2 dark:fill-white dark:hover:fill-light-0"
   return (
     <main className={MainStyle}>
       <Header selected="home"/>
       <div className={ContentStyle}>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-16">
-          <div className="p-2 lg:p-4 flex flex-row lg:flex-col items-center">
-            <Image
-              src={`/profile.png`}
-              alt="Selçuk Cihan"
-              width={160}
-              height={160}
-              className="rounded-full selc-image-container relative top-2 lg:top-0" />
-            <div className="px-6 lg:px-0 py-1 lg:py-2 lg:grow text-center lg:flex lg:flex-col">
-              <p className="py-1 lg:py-2 text-2xl lg:text-4xl">Selçuk Cihan</p>
-              <div className="py-1 lg:py-2 text-xl lg:grow">
-                <p>Software Engineer</p>
-                <p className="block lg:hidden text-base italic">ex-Amazon</p>
-              </div>
-              <Email mobileScreen={false}/>
-            </div>
-            <div className="flex flex-col gap-x-8 gap-y-4 lg:flex-row lg:pt-2 justify-center items-center">
-              <a href="https://github.com/selcukcihan" target="#blank"><GithubIcon className={iconStyle}/></a>
-              <a href="https://linkedin.com/in/selcukcihan" target="#blank"><LinkedinIcon className={iconStyle}/></a>
-              <a className="hidden lg:block" href="https://stackoverflow.com/users/4281182" target="#blank"><StackoverflowIcon className={iconStyle}/></a>
-              <a className="hidden lg:block" href="https://twitter.com/scihan" target="#blank"><TwitterIcon className={iconStyle}/></a>
-            </div>
-          </div>
+          <MobileHero/>
+          <LargeHero/>
           <div className="hidden lg:flex lg:flex-col p-4 text-xl font-extralight text-justify items-center">
             <div className="grow content-evenly">
               {HEADER_FIRST}
@@ -68,7 +99,7 @@ export default function Home() {
               <Image
                 src={`/architect.png`}
                 alt="AWS Solutions Architect Professional Certificate"
-                className="selc-image-container m-2 lg:m-8"
+                className="selc-image-container m-3"
                 width={160}
                 height={160} />
             </a>
@@ -76,7 +107,7 @@ export default function Home() {
               <Image
                 src={`/developer.png`}
                 alt="AWS Developer Associate Certificate"
-                className="selc-image-container m-2 lg:m-8"
+                className="selc-image-container m-3"
                 width={160}
                 height={160} />
             </a>
