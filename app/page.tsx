@@ -45,7 +45,7 @@ const MobileHero = () => (
       </div>
       <Email mobileScreen={false}/>
     </div>
-    <div className="flex flex-col gap-x-8 gap-y-4 justify-center items-center">
+    <div className="ml-auto flex flex-col gap-x-8 gap-y-4 justify-center items-center">
       <a href="https://github.com/selcukcihan" target="#blank"><GithubIcon className={iconStyle}/></a>
       <a href="https://linkedin.com/in/selcukcihan" target="#blank"><LinkedinIcon className={iconStyle}/></a>
     </div>
