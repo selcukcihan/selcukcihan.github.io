@@ -187,7 +187,7 @@ const JobCard = (props: any) => (
     </div>
     <div className="flex flex-row flex-wrap gap-1 px-8 flex-grow items-end p-8">
       {props.tech.map((tech: string, idx: number) => (
-        <span key={idx} className="bg-secondary-2 dark:bg-secondary-3 rounded p-1 text-xs dark:font-light">{tech}</span>
+        <span key={idx} className="text-white bg-secondary-2 dark:bg-secondary-3 rounded p-1 text-xs dark:font-light">{tech}</span>
       ))}
     </div>
   </div>
