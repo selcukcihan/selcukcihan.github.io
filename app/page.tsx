@@ -1,164 +1,255 @@
-import Image from "next/image";
-import Link from 'next/link'
-import Email from "../components/email";
-import Header from "../components/header";
-import { ContentStyle, MainStyle } from "./common";
-import { TESTIMONIALS } from "./data";
+import { Mail, Github, Linkedin, BookOpen, Twitter, Library, ExternalLink } from 'lucide-react'
+import Image from "next/image"
+import Link from "next/link"
 
-const bold = (text: string) => <span className="font-semibold">{text}</span>
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Separator } from "@/components/ui/separator"
+import { Badge } from "@/components/ui/badge"
+import { getIcon } from "@/utils/get-icon"
 
-const HEADER_FIRST = <p>As a former {bold("Amazonian")} devoted to helping customers and solving problems, Selçuk brings a strong sense of ownership and a track record of delivering results.</p>
-const HEADER_SECOND = <p>With over seven years of experience developing applications on {bold("AWS")}, he has a proven ability to take on technical duties from operations to development and architecture.</p>
+import { profileData } from './data/profile'
+import { testimonials } from './data/testimonials'
+import { careerExperiences } from './data/career'
+import { education } from './data/education'
+import { certifications } from './data/certifications'
 
-const hiringLinks = () => {
-  const className = "w-40 lg:w-56 rounded-md bg-secondary-2 dark:bg-secondary-3 text-white ring-gray-300 hover:bg-secondary-3 dark:hover:bg-secondary-2 px-2.5 py-1.5 lg:text-xl dark:font-semibold text-base shadow-sm ring-1 ring-inset"
-  const getButton = (text: string, title: string, extraClass: string) => <button title={title} type="button" className={className + extraClass}>{text}</button>
+export default function Portfolio() {
   return (
-    <>
-      <Link href="https://www.toptal.com/resume/selcuk-cihan" target="blank">
-        {getButton("Hire me on Toptal", "Click to hire me on Toptal", " hidden lg:block")}
-        {getButton("Hire on Toptal", "Click to hire me on Toptal", " lg:hidden")}
-      </Link>
-      <Link href="https://www.upwork.com/freelancers/~01852fc4c9119af2d7" target="blank">
-        {getButton("Hire me on Upwork", "Click to hire me on Upwork", " hidden lg:block")}
-        {getButton("Hire on Upwork", "Click to hire me on Upwork", " lg:hidden")}
-      </Link>
-    </>
+    <div className="min-h-screen bg-background">
+      {/* Hero Section */}
+      <section className="container px-4 md:px-6 py-12 md:py-24">
+        <div className="relative">
+          <div className="space-y-4">
+        <div className="flex flex-col md:flex-row items-center md:items-center space-y-4 md:space-y-0 md:space-x-8">
+          <div className="flex-shrink-0">
+            <Image
+          alt="Profile Picture"
+          className="rounded-full border-8 border-muted"
+          height="200"
+          src={profileData.image}
+          style={{
+            aspectRatio: "200/200",
+            objectFit: "cover",
+          }}
+          width="200"
+            />
+          </div>
+          <div className="flex-1 flex flex-col justify-center">
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+          {profileData.name}
+            </h1>
+            <p className="text-lg text-muted-foreground mt-2 text-center md:text-left">{profileData.title}</p>
+          </div>
+          <div className="hidden md:flex flex-col gap-2 min-[400px]:flex-row flex-wrap justify-end items-center">
+            {profileData.socials.map((social, index) => {
+          const Icon = getIcon(social.icon)
+          const isEmail = index === 0
+
+          return (
+            <Button
+              key={social.platform}
+              asChild
+              variant={isEmail ? "default" : "outline"}
+              className="gap-2"
+            >
+              <Link
+            href={social.url}
+            target={isEmail ? undefined : "_blank"}
+            rel={isEmail ? undefined : "noopener noreferrer"}
+              >
+            <Icon className="h-4 w-4" />
+            {social.platform}
+              </Link>
+            </Button>
+          )
+            })}
+          </div>
+        </div>
+        <div className="space-y-4">
+          {profileData.bio.map((paragraph, index) => (
+            <p key={index} className="text-gray-500 md:text-xl dark:text-gray-400">
+          {paragraph}
+            </p>
+          ))}
+        </div>
+        <div className="flex flex-col gap-2 min-[400px]:flex-row flex-wrap md:hidden">
+          {profileData.socials.map((social, index) => {
+            const Icon = getIcon(social.icon)
+            const isEmail = index === 0
+
+            return (
+          <Button
+            key={social.platform}
+            asChild
+            variant={isEmail ? "default" : "outline"}
+            className="gap-2"
+          >
+            <Link
+              href={social.url}
+              target={isEmail ? undefined : "_blank"}
+              rel={isEmail ? undefined : "noopener noreferrer"}
+            >
+              <Icon className="h-4 w-4" />
+              {social.platform}
+            </Link>
+          </Button>
+            )
+          })}
+        </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="container px-4 md:px-6 py-12">
+        <h2 className="text-3xl font-bold tracking-tighter mb-8">Client Testimonials</h2>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map((testimonial, index) => (
+            <Card key={index}>
+              <CardContent className="p-6">
+                <p className="italic mb-4">{testimonial.quote}</p>
+                <Separator className="my-4" />
+                <div>
+                  <p className="font-semibold">{testimonial.author}</p>
+                  <p className="text-sm text-muted-foreground">{testimonial.title}, {testimonial.company}</p>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Credentials Section */}
+      <section className="container px-4 md:px-6 py-12 bg-muted/50">
+        <h2 className="text-3xl font-bold tracking-tighter mb-8">Credentials</h2>
+        <div className="grid gap-6 lg:grid-cols-2">
+          <Card>
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold mb-4">AWS Certifications</h3>
+              <div className="grid gap-6">
+                {certifications.map((certification, index) => (
+                  <div key={index} className="space-y-4">
+                    <div className="flex items-start gap-4">
+                      <Image
+                        alt={certification.name}
+                        className="rounded-lg"
+                        height="128"
+                        src={certification.imageUrl}
+                        width="128"
+                      />
+                      <div className="space-y-1">
+                        <h4 className="font-semibold">{certification.name}</h4>
+                        <p className="text-sm text-muted-foreground">{certification.level}</p>
+                        <p className="text-sm text-muted-foreground">{certification.issuer}</p>
+                      </div>
+                    </div>
+                    {index < certifications.length - 1 && <Separator />}
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold mb-4">Education</h3>
+              <div className="grid gap-6">
+                {education.map((edu, index) => (
+                  <div key={index} className="space-y-2">
+                    <div className="flex flex-col md:flex-row justify-between">
+                      <h4 className="font-semibold">{edu.degree}</h4>
+                      <p className="text-sm text-muted-foreground">{edu.year}</p>
+                    </div>
+                    <p className="text-muted-foreground">{edu.university}</p>
+                    {edu.details && (
+                      <p className="text-sm text-gray-500">{edu.details}</p>
+                    )}
+                    {index < education.length - 1 && <Separator className="mt-4" />}
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section className="container px-4 md:px-6 py-12">
+        <h2 className="text-3xl font-bold tracking-tighter mb-8">Professional Experience</h2>
+        <div className="grid gap-8">
+          {careerExperiences.map((experience, index) => (
+            <Card key={index}>
+              <CardContent className="p-6">
+                <div className="flex flex-col md:flex-row justify-between mb-4">
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <h3 className="text-xl font-bold">{experience.company}</h3>
+                      {experience.website && (
+                        <Link 
+                          href={experience.website.url}
+                          className="text-sm text-muted-foreground hover:text-primary inline-flex items-center gap-1"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {experience.website.name}
+                          <ExternalLink className="h-3 w-3" />
+                        </Link>
+                      )}
+                    </div>
+                    <p className="text-muted-foreground">{experience.role}</p>
+                  </div>
+                  <p className="text-sm text-muted-foreground">{experience.period}</p>
+                </div>
+                {experience.description && (
+                  <p className="text-gray-500 mb-4">{experience.description}</p>
+                )}
+                {experience.achievements && (
+                  <div className="mb-4">
+                    <h4 className="font-semibold mb-2">Key Achievements:</h4>
+                    <ul className="list-disc list-inside space-y-1 text-gray-500">
+                      {experience.achievements.map((achievement, i) => (
+                        <li key={i}>{achievement}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {experience.tech && (
+                  <div className="flex flex-wrap gap-2">
+                    {experience.tech.map((tech, i) => (
+                      <Badge key={i} variant="secondary">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t">
+        <div className="container flex flex-col gap-4 py-12 px-4 md:px-6 text-center">
+          <p className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()} {profileData.name}. All rights reserved.
+          </p>
+          <div className="flex justify-center gap-4 flex-wrap">
+            {profileData.socials.map((social) => (
+              <Link
+                key={social.platform}
+                href={social.url}
+                className="text-sm text-muted-foreground hover:text-primary"
+                target={social.platform === "Email" ? undefined : "_blank"}
+                rel={social.platform === "Email" ? undefined : "noopener noreferrer"}
+              >
+                {social.platform}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </footer>
+    </div>
   )
 }
 
-const iconStyle = "h-6 w-6 lg:h-8 lg:w-8 fill-black hover:fill-secondary-2 dark:fill-white dark:hover:fill-light-0"
-
-const MobileHero = () => (
-  <div className="lg:hidden p-2 flex flex-row items-center">
-    <Image
-      src={`/profile.png`}
-      alt="Selçuk Cihan"
-      width={160}
-      height={160}
-      className="rounded-full selc-image-container relative top-2" />
-    <div className="px-6 py-1 text-center">
-      <p className="py-1 text-2xl">Selçuk Cihan</p>
-      <div className="py-1 text-xl">
-        <p>Software Engineer</p>
-        <p className="text-base italic">ex-Amazon</p>
-      </div>
-      <Email mobileScreen={false}/>
-    </div>
-    <div className="ml-auto flex flex-col gap-x-8 gap-y-4 justify-center items-center">
-      <a href="https://github.com/selcukcihan" target="#blank"><GithubIcon className={iconStyle}/></a>
-      <a href="https://linkedin.com/in/selcukcihan" target="#blank"><LinkedinIcon className={iconStyle}/></a>
-    </div>
-  </div>
-)
-
-const LargeHero = () => (
-  <div className="hidden lg:flex p-4 flex-col items-center">
-    <Image
-      src={`/profile.png`}
-      alt="Selçuk Cihan"
-      width={160}
-      height={160}
-      className="rounded-full selc-image-container relative" />
-    <div className="py-2 grow text-center flex flex-col">
-      <p className="py-2 text-4xl">Selçuk Cihan</p>
-      <div className="py-2 text-xl grow">
-        <p>Software Engineer</p>
-      </div>
-      <Email mobileScreen={false}/>
-    </div>
-    <div className="flex gap-x-8 gap-y-4 flex-row pt-2 justify-center items-center">
-      <a href="https://github.com/selcukcihan" target="#blank"><GithubIcon className={iconStyle}/></a>
-      <a href="https://linkedin.com/in/selcukcihan" target="#blank"><LinkedinIcon className={iconStyle}/></a>
-      <a href="https://stackoverflow.com/users/4281182" target="#blank"><StackoverflowIcon className={iconStyle}/></a>
-      <a href="https://twitter.com/scihan" target="#blank"><TwitterIcon className={iconStyle}/></a>
-      <a href="https://scihan.substack.com" target="#blank"><SubstackIcon className={iconStyle}/></a>
-    </div>
-  </div>
-)
-
-export default function Home() {
-  return (
-    <main className={MainStyle}>
-      <Header selected="home"/>
-      <div className={ContentStyle}>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-16">
-          <MobileHero/>
-          <LargeHero/>
-          <div className="hidden lg:flex lg:flex-col p-4 text-xl font-extralight text-justify items-center">
-            <div className="grow content-evenly">
-              {HEADER_FIRST}
-              <br/>
-              {HEADER_SECOND}
-            </div>
-            <div className="flex gap-x-8">
-              {hiringLinks()}
-            </div>
-          </div>
-          <div className="flex flex-row lg:flex-col gap-x-12 items-center justify-center">
-            <a target="#blank" href="https://www.credly.com/badges/f2b93002-0754-4e37-8d31-031d2d520ee3">
-              <Image
-                src={`/architect.png`}
-                alt="AWS Solutions Architect Professional Certificate"
-                className="selc-image-container m-3"
-                width={160}
-                height={160} />
-            </a>
-            <a target="#blank" href="https://www.credly.com/badges/3fb06d81-a97f-4182-ada1-bdcc221152de">
-              <Image
-                src={`/developer.png`}
-                alt="AWS Developer Associate Certificate"
-                className="selc-image-container m-3"
-                width={160}
-                height={160} />
-            </a>
-          </div>
-        </div>
-        <div className="lg:hidden text-center">
-        <Email mobileScreen={true}/>
-          <div className="flex justify-center gap-x-2">
-            {hiringLinks()}
-          </div>
-        </div>
-        <div className="grid grid-cols-1 lg:grid-cols-3">
-          {TESTIMONIALS.map((testimonial, idx) => (
-              <Testimonial key={idx} {...testimonial} />
-            ))}
-        </div>
-      </div>
-    </main>
-  );
-}
-
-const Testimonial = (props: any) => (
-  <div className="grid grid-col-1 h-64 lg:h-72 m-4 lg:m-8 p-4 justify-self-center bg-primary-0 dark:bg-secondary-1 shadow-lg rounded-sm shadow-secondary-1 dark:shadow-black text-sm lg:text-base text-justify text-pretty">
-    <p className="font-light italic lg:pt-10">{props.text}</p>
-    <p className="font-light self-end lg:pb-5 text-center">{props.author}</p>
-    <Link href={props.link} className="place-self-center">
-      <button title="Click to read more" type="button" className="w-28 rounded-md bg-secondary-2 dark:bg-secondary-3 text-white ring-gray-300 hover:bg-secondary-3 dark:hover:bg-secondary-2 px-2.5 py-1.5 text-xs dark:font-semibold shadow-sm ring-1 ring-inset">Full testimonial</button>
-    </Link>
-  </div>
-)
-
-const GithubIcon = (props: any) => (
-  <svg {...props} role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-)
-
-const LinkedinIcon = (props: any) => (
-  <svg {...props} role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-)
-
-const TwitterIcon = (props: any) => (
-  <svg {...props} role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
-)
-
-const StackoverflowIcon = (props: any) => (
-  <svg {...props} role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Stack Overflow</title><path d="M15.725 0l-1.72 1.277 6.39 8.588 1.716-1.277L15.725 0zm-3.94 3.418l-1.369 1.644 8.225 6.85 1.369-1.644-8.225-6.85zm-3.15 4.465l-.905 1.94 9.702 4.517.904-1.94-9.701-4.517zm-1.85 4.86l-.44 2.093 10.473 2.201.44-2.092-10.473-2.203zM1.89 15.47V24h19.19v-8.53h-2.133v6.397H4.021v-6.396H1.89zm4.265 2.133v2.13h10.66v-2.13H6.154Z"/></svg>
-)
-
-const SubstackIcon = (props: any) => (
-  <svg {...props} viewBox="0 0 16 16">
-    <title>Substack</title>
-    <path d="M15 3.604H1v1.891h14v-1.89ZM1 7.208V16l7-3.926L15 16V7.208zM15 0H1v1.89h14z"/>
-  </svg>
-)
