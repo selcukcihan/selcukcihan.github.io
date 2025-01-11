@@ -1,3 +1,5 @@
+'use client'
+
 import { Mail, Github, Linkedin, BookOpen, Twitter, Library, ExternalLink } from 'lucide-react'
 import Image from "next/image"
 import Link from "next/link"
@@ -105,14 +107,25 @@ export default function Portfolio() {
       <section className="container px-4 md:px-6 py-12">
         <h2 className="text-3xl font-bold tracking-tighter mb-8">Client Testimonials</h2>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index}>
+          {testimonials.map((testimonial) => (
+            <Card key={testimonial.id}>
               <CardContent className="p-6">
-                <p className="italic mb-4">{testimonial.quote}</p>
-                <Separator className="my-4" />
-                <div>
-                  <p className="font-semibold">{testimonial.author}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.title}, {testimonial.company}</p>
+                <div className="space-y-4">
+                  <p className="italic">{testimonial.quote}</p>
+                  <Separator />
+                  <div>
+                    <p className="font-semibold">{testimonial.author}</p>
+                    <p className="text-sm text-muted-foreground">{testimonial.title}, {testimonial.company}</p>
+                  </div>
+                  {testimonial.fullTestimonial && (
+                    <Button 
+                      variant="link" 
+                      className="h-auto p-0 text-primary hover:text-primary/80"
+                      onClick={() => window.alert(testimonial.fullTestimonial)}
+                    >
+                      Click to read more →
+                    </Button>
+                  )}
                 </div>
               </CardContent>
             </Card>

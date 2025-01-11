@@ -1,8 +1,10 @@
 export interface Testimonial {
+  id: string
   quote: string
   author: string
   title: string
   company: string
+  fullTestimonial: string
 }
 
 export interface CareerExperience {
