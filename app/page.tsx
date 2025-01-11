@@ -139,7 +139,17 @@ export default function Portfolio() {
                         width="128"
                       />
                       <div className="space-y-1">
-                        <h4 className="font-semibold">{certification.name}</h4>
+                        <h4 className="font-semibold">
+                          <Link 
+                            href={certification.url}
+                            className="inline-flex items-center gap-1 hover:text-primary"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {certification.name}
+                            <ExternalLink className="h-3 w-3" />
+                          </Link>
+                        </h4>
                         <p className="text-sm text-muted-foreground">{certification.level}</p>
                         <p className="text-sm text-muted-foreground">{certification.issuer}</p>
                       </div>

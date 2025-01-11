@@ -30,6 +30,7 @@ export interface Certification {
   issued: string
   expires: string
   imageUrl: string
+  url: string
 }
 
 export interface SocialLinks {

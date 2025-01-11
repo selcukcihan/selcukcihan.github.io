@@ -159,4 +159,20 @@ export const careerExperiences: CareerExperience[] = [
     ],
     tech: "Microsoft .NET, C#, WinForms, WPF, Oracle".split(', ')
   },
+  {
+    company: 'AirTies',
+    website: {
+      name: 'airties.com',
+      url: 'https://airties.com'
+    },
+    role: 'Software Development Engineer',
+    period: '2009 - 2010',
+    description: "",
+    achievements: [
+      "Developed solutions for IPTV products in C & C++",
+      "Implemented teletext and rtsp parsers.",
+      "Worked on closed captioning and subtitles for IPTV.",
+    ],
+    tech: "C, C++, busybox, unix, kernel, rtsp, teletext, iptv".split(', ')
+  },
 ]

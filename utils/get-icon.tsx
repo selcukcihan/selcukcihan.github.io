@@ -1,4 +1,4 @@
-import { Mail, Github, Linkedin, BookOpen, Twitter, Library, TypeIcon as type, LucideIcon } from 'lucide-react'
+import { Mail, Github, Linkedin, BookOpen, Twitter, Library, Youtube, TypeIcon as type, LucideIcon } from 'lucide-react'
 
 const iconMap: Record<string, LucideIcon> = {
   Mail,
@@ -7,6 +7,7 @@ const iconMap: Record<string, LucideIcon> = {
   BookOpen,
   Twitter,
   Library,
+  Youtube,
 }
 
 export function getIcon(name: string): LucideIcon {

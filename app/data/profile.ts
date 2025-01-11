@@ -38,6 +38,11 @@ export const profileData: ProfileData = {
       platform: "Stack Overflow",
       url: "https://stackoverflow.com/users/4281182",
       icon: "Library"
+    },
+    {
+      platform: "YouTube",
+      url: "https://youtube.com/@oscihan?feature=shared",
+      icon: "Youtube"
     }
   ]
 }
