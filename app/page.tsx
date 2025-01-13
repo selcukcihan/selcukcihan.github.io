@@ -45,11 +45,11 @@ export default function Portfolio() {
                   width="200"
                 />
               </div>
-              <div className="flex-1 flex flex-col justify-center">
+              <div className="flex-1 flex flex-col justify-center text-center md:text-left">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
                   {profileData.name}
                 </h1>
-                <p className="text-lg text-muted-foreground mt-2 text-center md:text-left">
+                <p className="text-lg text-muted-foreground mt-2">
                   {profileData.title}
                 </p>
               </div>
