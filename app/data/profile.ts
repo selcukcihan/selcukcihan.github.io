@@ -2,10 +2,11 @@ import { ProfileData } from '../types/data'
 
 export const profileData: ProfileData = {
   name: "Selçuk Cihan",
-  title: "Software Engineer",
+  title: "Software Development Engineer",
   bio: [
     "As a former Amazonian devoted to helping customers and solving problems, Selçuk brings a strong sense of ownership and a track record of delivering results.",
-    "With over seven years of experience developing applications on AWS, he has a proven ability to take on technical duties from operations to development and architecture."
+    "With over fifteen years of experience developing enterprise grade applications, he has a proven ability to take on technical & management duties from operations to development, team building and architecture.",
+    "He successfully managed the development of mission-critical workflows and optimized engineering processes to enhance efficiency and deliver value. His ability to balance technical depth with strategic vision enables him to inspire teams and deliver innovative solutions that align with organizational goals.",
   ],
   image: "/profile.png?height=400&width=400",
   socials: [
