@@ -117,7 +117,7 @@ export default function Portfolio() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="container px-4 md:px-6 py-12">
+      <section className="container px-4 md:px-6 py-12 pt-0">
         <h2 className="text-3xl font-bold tracking-tighter mb-8">
           Client Testimonials
         </h2>
