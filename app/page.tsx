@@ -107,7 +107,7 @@ export default function Portfolio() {
                         asChild
                         variant={isEmail ? "default" : "outline"}
                         size="lg"
-                        className={`gap-2 transition-all duration-300 hover:scale-105 ${
+                        className={`gap-2 transition-all duration-200 hover:scale-105 ${
                           isEmail 
                             ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg" 
                             : "border-2 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
@@ -176,7 +176,7 @@ export default function Portfolio() {
             
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {testimonials.map((testimonial) => (
-                <Card key={testimonial.id} className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
+                <Card key={testimonial.id} className="group hover:shadow-2xl transition-all duration-200 hover:-translate-y-2 border-0 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
                   <CardContent className="p-8">
                     <div className="space-y-6">
                       <div className="flex text-yellow-400">
@@ -238,7 +238,7 @@ export default function Portfolio() {
             
             <div className="space-y-8">
               {careerExperiences.slice(0, 6).map((experience, index) => (
-                <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-l-4 border-l-blue-500 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
+                <Card key={index} className="group hover:shadow-xl transition-all duration-200 border-l-4 border-l-blue-500 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
                   <CardContent className="p-8">
                     <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
                       <div className="space-y-2">
@@ -439,7 +439,7 @@ export default function Portfolio() {
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-blue-600 hover:bg-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                className="bg-white text-blue-600 hover:bg-gray-100 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
               >
                 <Link href="mailto:selcukcihan@gmail.com">
                   <Mail className="h-5 w-5 mr-2" />
@@ -450,11 +450,11 @@ export default function Portfolio() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white hover:text-blue-600 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                className="border-white text-white hover:bg-white hover:text-blue-600 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
               >
                 <Link href="https://linkedin.com/in/selcukcihan" target="_blank">
                   <Linkedin className="h-5 w-5 mr-2" />
-                  Connect on LinkedIn
+                  <span>Connect on LinkedIn</span>
                 </Link>
               </Button>
             </div>
@@ -484,6 +484,7 @@ export default function Portfolio() {
                       className="p-3 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors hover:scale-110 transform duration-200"
                       target={social.platform === "Email" ? undefined : "_blank"}
                       rel={social.platform === "Email" ? undefined : "noopener noreferrer"}
+                      title={`Connect on ${social.platform}`}
                     >
                       <Icon className="h-5 w-5" />
                     </Link>

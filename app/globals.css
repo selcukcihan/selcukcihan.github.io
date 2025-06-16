@@ -62,9 +62,9 @@
   background: #374151;
 }
 
-/* Smooth scroll behavior */
+/* Remove smooth scroll behavior to fix lag */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 /* Custom gradient text animation */
@@ -103,9 +103,9 @@ html {
   @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800;
 }
 
-/* Custom button hover effects */
+/* Custom button hover effects - optimized for performance */
 .btn-hover-lift {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-hover-lift:hover {
@@ -113,9 +113,9 @@ html {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Card hover effects */
+/* Card hover effects - optimized for performance */
 .card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card-hover:hover {
