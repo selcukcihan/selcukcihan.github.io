@@ -37,8 +37,49 @@ import { careerExperiences } from "./data/career";
 import { education } from "./data/education";
 import { certifications } from "./data/certifications";
 
+// Helper function to parse achievement strings and convert HTML links to React components
+function parseAchievement(achievement: string): React.ReactNode {
+  // Match <a href='...'>text</a> or <a href="...">text</a>
+  const linkRegex = /<a\s+href=['"]([^'"]+)['"]\s*>(.*?)<\/a>/gi;
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match;
+
+  while ((match = linkRegex.exec(achievement)) !== null) {
+    // Add text before the link
+    if (match.index > lastIndex) {
+      parts.push(achievement.substring(lastIndex, match.index));
+    }
+
+    // Add the link component
+    parts.push(
+      <Link
+        key={match.index}
+        href={match[1]}
+        className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline inline-flex items-center gap-1 transition-colors"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {match[2]}
+        <ExternalLink className="h-3 w-3" />
+      </Link>
+    );
+
+    lastIndex = match.index + match[0].length;
+  }
+
+  // Add remaining text after the last link
+  if (lastIndex < achievement.length) {
+    parts.push(achievement.substring(lastIndex));
+  }
+
+  return parts.length > 0 ? <>{parts}</> : achievement;
+}
+
 export default function Portfolio() {
-  const [selectedTestimonial, setSelectedTestimonial] = useState<string | null>(null);
+  const [selectedTestimonial, setSelectedTestimonial] = useState<string | null>(
+    null
+  );
 
   const handleTestimonialClick = (testimonial: any) => {
     setSelectedTestimonial(testimonial.fullTestimonial);
@@ -73,18 +114,18 @@ export default function Portfolio() {
                   <CheckCircle className="h-6 w-6 text-white" />
                 </div>
               </div>
-              
+
               <div className="flex-1 text-center lg:text-left space-y-6">
                 <div className="space-y-4">
                   <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 rounded-full text-sm font-medium text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-700">
                     <Star className="h-4 w-4 mr-2 text-yellow-500" />
                     Available for new projects
                   </div>
-                  
+
                   <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent leading-tight">
                     {profileData.name}
                   </h1>
-                  
+
                   <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-medium">
                     {profileData.title}
                   </p>
@@ -110,8 +151,8 @@ export default function Portfolio() {
                         variant={isEmail ? "default" : "outline"}
                         size="lg"
                         className={`gap-2 transition-all duration-200 hover:scale-105 ${
-                          isEmail 
-                            ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg" 
+                          isEmail
+                            ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg"
                             : "border-2 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
                         }`}
                       >
@@ -139,20 +180,36 @@ export default function Portfolio() {
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">7+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">Years on AWS</div>
+                <div className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+                  7+
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                  Years on AWS
+                </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-purple-600 dark:text-purple-400">50+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">Projects Delivered</div>
+                <div className="text-3xl md:text-4xl font-bold text-purple-600 dark:text-purple-400">
+                  50+
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                  Projects Delivered
+                </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-teal-600 dark:text-teal-400">2</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">AWS Certifications</div>
+                <div className="text-3xl md:text-4xl font-bold text-teal-600 dark:text-teal-400">
+                  2
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                  AWS Certifications
+                </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-orange-600 dark:text-orange-400">100%</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">Client Satisfaction</div>
+                <div className="text-3xl md:text-4xl font-bold text-orange-600 dark:text-orange-400">
+                  100%
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                  Client Satisfaction
+                </div>
               </div>
             </div>
           </div>
@@ -175,10 +232,13 @@ export default function Portfolio() {
                 Trusted by teams at leading companies worldwide
               </p>
             </div>
-            
+
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {testimonials.map((testimonial) => (
-                <Card key={testimonial.id} className="group hover:shadow-2xl transition-all duration-200 hover:-translate-y-2 border-0 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
+                <Card
+                  key={testimonial.id}
+                  className="group hover:shadow-2xl transition-all duration-200 hover:-translate-y-2 border-0 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm"
+                >
                   <CardContent className="p-8">
                     <div className="space-y-6">
                       <div className="flex text-yellow-400">
@@ -186,13 +246,13 @@ export default function Portfolio() {
                           <Star key={i} className="h-5 w-5 fill-current" />
                         ))}
                       </div>
-                      
+
                       <p className="text-gray-700 dark:text-gray-300 italic leading-relaxed">
                         "{testimonial.quote}"
                       </p>
-                      
+
                       <Separator className="bg-gradient-to-r from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700" />
-                      
+
                       <div className="space-y-2">
                         <p className="font-semibold text-gray-900 dark:text-white">
                           {testimonial.author}
@@ -201,7 +261,7 @@ export default function Portfolio() {
                           {testimonial.title}, {testimonial.company}
                         </p>
                       </div>
-                      
+
                       {testimonial.fullTestimonial && (
                         <Button
                           variant="ghost"
@@ -237,10 +297,13 @@ export default function Portfolio() {
                 Building scalable solutions across diverse industries
               </p>
             </div>
-            
+
             <div className="space-y-8">
-              {careerExperiences.slice(0, 6).map((experience, index) => (
-                <Card key={index} className="group hover:shadow-xl transition-all duration-200 border-l-4 border-l-blue-500 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
+              {careerExperiences.map((experience, index) => (
+                <Card
+                  key={index}
+                  className="group hover:shadow-xl transition-all duration-200 border-l-4 border-l-blue-500 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm"
+                >
                   <CardContent className="p-8">
                     <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
                       <div className="space-y-2">
@@ -270,7 +333,7 @@ export default function Portfolio() {
                         </span>
                       </div>
                     </div>
-                    
+
                     {experience.achievements && (
                       <div className="mb-6">
                         <h4 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
@@ -279,15 +342,18 @@ export default function Portfolio() {
                         </h4>
                         <ul className="space-y-2">
                           {experience.achievements.map((achievement, i) => (
-                            <li key={i} className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
+                            <li
+                              key={i}
+                              className="flex items-start gap-3 text-gray-700 dark:text-gray-300"
+                            >
                               <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                              <span>{achievement}</span>
+                              <span>{parseAchievement(achievement)}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
                     )}
-                    
+
                     {experience.tech && (
                       <div>
                         <h4 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
@@ -296,9 +362,9 @@ export default function Portfolio() {
                         </h4>
                         <div className="flex flex-wrap gap-2">
                           {experience.tech.map((tech, i) => (
-                            <Badge 
-                              key={i} 
-                              variant="secondary" 
+                            <Badge
+                              key={i}
+                              variant="secondary"
                               className="bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 text-gray-800 dark:text-gray-200 hover:from-blue-100 hover:to-purple-100 dark:hover:from-blue-900/30 dark:hover:to-purple-900/30 transition-all duration-200"
                             >
                               {tech}
@@ -331,7 +397,7 @@ export default function Portfolio() {
                 Continuous learning and professional development
               </p>
             </div>
-            
+
             <div className="grid gap-8 lg:grid-cols-2">
               <Card className="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 border-orange-200 dark:border-orange-700">
                 <CardContent className="p-8">
@@ -343,7 +409,7 @@ export default function Portfolio() {
                       AWS Certifications
                     </h3>
                   </div>
-                  
+
                   <div className="space-y-6">
                     {certifications.map((certification, index) => (
                       <div key={index} className="flex items-start gap-4">
@@ -375,7 +441,8 @@ export default function Portfolio() {
                             {certification.level} • {certification.issuer}
                           </p>
                           <p className="text-xs text-gray-500 dark:text-gray-500">
-                            Issued: {certification.issued} • Expires: {certification.expires}
+                            Issued: {certification.issued} • Expires:{" "}
+                            {certification.expires}
                           </p>
                         </div>
                       </div>
@@ -383,7 +450,7 @@ export default function Portfolio() {
                   </div>
                 </CardContent>
               </Card>
-              
+
               <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border-blue-200 dark:border-blue-700">
                 <CardContent className="p-8">
                   <div className="flex items-center gap-3 mb-6">
@@ -394,7 +461,7 @@ export default function Portfolio() {
                       Education
                     </h3>
                   </div>
-                  
+
                   <div className="space-y-6">
                     {education.map((edu, index) => (
                       <div key={index} className="space-y-3">
@@ -435,7 +502,8 @@ export default function Portfolio() {
               Ready to Build Something Amazing?
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Let's discuss your next project and bring your ideas to life with cutting-edge technology.
+              Let's discuss your next project and bring your ideas to life with
+              cutting-edge technology.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -445,16 +513,18 @@ export default function Portfolio() {
               >
                 <Link href="mailto:selcukcihan@gmail.com">
                   <Mail className="h-5 w-5 mr-2" />
-                  Get In Touch
+                  Get in touch
                 </Link>
               </Button>
               <Button
                 asChild
-                variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white hover:text-blue-600 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
+                className="bg-white text-blue-600 hover:bg-gray-100 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
               >
-                <Link href="https://linkedin.com/in/selcukcihan" target="_blank">
+                <Link
+                  href="https://linkedin.com/in/selcukcihan"
+                  target="_blank"
+                >
                   <Linkedin className="h-5 w-5 mr-2" />
                   <span>Connect on LinkedIn</span>
                 </Link>
@@ -475,7 +545,7 @@ export default function Portfolio() {
                   © {new Date().getFullYear()} All rights reserved.
                 </p>
               </div>
-              
+
               <div className="flex gap-4">
                 {profileData.socials.map((social) => {
                   const Icon = getIcon(social.icon);
@@ -484,8 +554,14 @@ export default function Portfolio() {
                       key={social.platform}
                       href={social.url}
                       className="p-3 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors hover:scale-110 transform duration-200"
-                      target={social.platform === "Email" ? undefined : "_blank"}
-                      rel={social.platform === "Email" ? undefined : "noopener noreferrer"}
+                      target={
+                        social.platform === "Email" ? undefined : "_blank"
+                      }
+                      rel={
+                        social.platform === "Email"
+                          ? undefined
+                          : "noopener noreferrer"
+                      }
                       title={`Connect on ${social.platform}`}
                     >
                       <Icon className="h-5 w-5" />

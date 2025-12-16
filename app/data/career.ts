@@ -1,15 +1,14 @@
-import { CareerExperience } from '../types/data'
-
+import { CareerExperience } from "../types/data";
 
 export const careerExperiences: CareerExperience[] = [
   {
-    company: 'RTIC Outdoors',
+    company: "RTIC Outdoors",
     website: {
-      name: 'rticoutdoors.com',
-      url: 'https://rticoutdoors.com'
+      name: "rticoutdoors.com",
+      url: "https://rticoutdoors.com",
     },
-    role: 'Contractor',
-    period: '2023 - Present',
+    role: "Contractor",
+    period: "2023 - Present",
     description: "",
     achievements: [
       "Created mobile device management tools.",
@@ -27,34 +26,29 @@ export const careerExperiences: CareerExperience[] = [
     ],
   },
   {
-    company: 'Serverless Inc',
+    company: "Serverless Inc",
     website: {
-      name: 'serverless.com',
-      url: 'https://www.serverless.com'
+      name: "serverless.com",
+      url: "https://www.serverless.com",
     },
-    role: 'Contractor',
-    period: '2023',
+    role: "Contractor",
+    period: "2023",
     description: "",
     achievements: [
       "Created the Python AWS Lambda SDK for Serverless Console, which is an observability platform for applications running on AWS Lambda.",
       "Implemented CI/CD flows on github actions.",
       "Automated tests that validate end to end business logic and performance.",
     ],
-    tech: [
-      "Python",
-      "Serverless",
-      "Lambda",
-      "AWS",
-    ]
+    tech: ["Python", "Serverless", "Lambda", "AWS"],
   },
   {
-    company: 'Scriber',
+    company: "Scriber",
     website: {
-      name: 'scriber.to',
-      url: 'https://scriber.to'
+      name: "scriber.to",
+      url: "https://scriber.to",
     },
-    role: 'Contractor',
-    period: '2021 - 2022',
+    role: "Contractor",
+    period: "2021 - 2022",
     description: "",
     achievements: [
       "Created the serverless GraphQL backend for scriber.to, which is a platform for financial writers.",
@@ -70,16 +64,16 @@ export const careerExperiences: CareerExperience[] = [
       "RDS",
       "Stripe",
       "EventBridge",
-    ]
+    ],
   },
   {
-    company: 'Tellimer',
+    company: "Tellimer",
     website: {
-      name: 'tellimer.com',
-      url: 'https://tellimer.com'
+      name: "tellimer.com",
+      url: "https://tellimer.com",
     },
-    role: 'Contractor',
-    period: '2019 - 2021',
+    role: "Contractor",
+    period: "2019 - 2021",
     description: "",
     achievements: [
       "Created the API and step functions orchestrator that forms the machine learning pipeline for parsel.ai, which is a machine learning SAAS offering.",
@@ -90,16 +84,18 @@ export const careerExperiences: CareerExperience[] = [
       "Created GraphQL APIs with AppSync, connecting various data sources like DynamoDB & RDS.",
       "Created serverless workflows using AWS Step Functions to integrate with external services.",
     ],
-    tech: "TypeScript, Python, Serverless, Lambda, API Gateway, DynamoDB, Stripe, EventBridge, AppSync, Cognito, Datadog".split(', ')
+    tech: "TypeScript, Python, Serverless, Lambda, API Gateway, DynamoDB, Stripe, EventBridge, AppSync, Cognito, Datadog".split(
+      ", "
+    ),
   },
   {
-    company: 'Toptal',
+    company: "Toptal",
     website: {
-      name: 'toptal.com',
-      url: 'https://toptal.com'
+      name: "toptal.com",
+      url: "https://toptal.com",
     },
-    role: 'Freelancer',
-    period: '2018 - 2019',
+    role: "Freelancer",
+    period: "2018 - 2019",
     description: "",
     achievements: [
       "Worked as the lead backend developer for a non-profit client.",
@@ -108,16 +104,18 @@ export const careerExperiences: CareerExperience[] = [
       "Improved performance by reengineering caching on CloudFront/S3.",
       "Mentored developers and reviewed pull requests.",
     ],
-    tech: "Python, Serverless, Lambda, API Gateway, DynamoDB, VPC, SQS, CloudWatch, S3, CloudFront".split(', ')
+    tech: "Python, Serverless, Lambda, API Gateway, DynamoDB, VPC, SQS, CloudWatch, S3, CloudFront".split(
+      ", "
+    ),
   },
   {
-    company: 'Amazon',
+    company: "Amazon",
     website: {
-      name: 'amazon.com',
-      url: 'https://amazon.com'
+      name: "amazon.com",
+      url: "https://amazon.com",
     },
-    role: 'Software Development Engineer',
-    period: '2017 - 2018',
+    role: "Software Development Engineer",
+    period: "2017 - 2018",
     description: "",
     achievements: [
       "Developed and maintained the orchestration platform that processes Amazon’s catalog updates. The platform is able to handle tens of thousands of TPS, enabling the finest and largest catalog on earth. Uses Kinesis as the backbone and routes updates to the catalog to relevant downstream services.",
@@ -126,53 +124,57 @@ export const careerExperiences: CareerExperience[] = [
       "Supported the reconciliation engine (Java 8) that generates the retail catalog.",
       "Carried out live migrations of several web services without downtime. Successfully deprecated multiple legacy services in an effort to simplify the overall architecture and enable catalog growth.",
     ],
-    tech: "Python, Serverless, Lambda, API Gateway, DynamoDB, VPC, SQS, CloudWatch, S3, CloudFront".split(', ')
+    tech: "Python, Serverless, Lambda, API Gateway, DynamoDB, VPC, SQS, CloudWatch, S3, CloudFront".split(
+      ", "
+    ),
   },
   {
-    company: 'Intertech',
+    company: "Intertech",
     website: {
-      name: 'intertech.com.tr',
-      url: 'https://www.intertech.com.tr'
+      name: "intertech.com.tr",
+      url: "https://www.intertech.com.tr",
     },
-    role: 'Senior Software Engineer',
-    period: '2013 - 2017',
+    role: "Senior Software Engineer",
+    period: "2013 - 2017",
     description: "",
     achievements: [
       "Supported the workflow engine (C#, Windows service) serving banking applications such as loans, customer complaints etc.",
       "Set up elastic to index workflow engine documents, enabling powerful search mechanisms for the end user.",
-      "Designed and implemented a workforce management system that empowers the bank’s operation center. The application uses Microsoft’s solver foundation to solve the task assignment problem. This project got BAI Internal Process Innovation Award at 2017.",
+      "Designed and implemented a workforce management system that empowers the bank's operation center. The application uses Microsoft's solver foundation to solve the task assignment problem. This project, titled 'Intelligent Workforce Management', got <a href='https://www.bai.org/news/bai-announces-the-winners-of-the-2017-global-innovation-awards/'>BAI Internal Process Innovation Award</a> at 2017.",
     ],
-    tech: "Microsoft .Net, C#, MSSQL, ElasticSearch, REST, Agile, Unit testing, JavaScript, DevOps".split(', ')
+    tech: "Microsoft .Net, C#, MSSQL, ElasticSearch, REST, Agile, Unit testing, JavaScript, DevOps".split(
+      ", "
+    ),
   },
   {
-    company: 'Ziraat Teknoloji',
+    company: "Ziraat Teknoloji",
     website: {
-      name: 'ziraatteknoloji.com',
-      url: 'https://www.ziraatteknoloji.com'
+      name: "ziraatteknoloji.com",
+      url: "https://www.ziraatteknoloji.com",
     },
-    role: 'Software Development Engineer',
-    period: '2011 - 2013',
+    role: "Software Development Engineer",
+    period: "2011 - 2013",
     description: "",
     achievements: [
       "Designed and implemented workflow engine running on top of Oracle, serving over 100,000 workflow instances daily.",
       "Served as scrum master and mentored junior developers.",
     ],
-    tech: "Microsoft .NET, C#, WinForms, WPF, Oracle".split(', ')
+    tech: "Microsoft .NET, C#, WinForms, WPF, Oracle".split(", "),
   },
   {
-    company: 'AirTies',
+    company: "AirTies",
     website: {
-      name: 'airties.com',
-      url: 'https://airties.com'
+      name: "airties.com",
+      url: "https://airties.com",
     },
-    role: 'Software Development Engineer',
-    period: '2009 - 2010',
+    role: "Software Development Engineer",
+    period: "2009 - 2010",
     description: "",
     achievements: [
       "Developed solutions for IPTV products in C & C++",
       "Implemented teletext and rtsp parsers.",
       "Worked on closed captioning and subtitles for IPTV.",
     ],
-    tech: "C, C++, busybox, unix, kernel, rtsp, teletext, iptv".split(', ')
+    tech: "C, C++, busybox, unix, kernel, rtsp, teletext, iptv".split(", "),
   },
-]
+];
