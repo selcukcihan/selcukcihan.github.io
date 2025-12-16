@@ -31,7 +31,7 @@ export const profileData: ProfileData = {
     },
     {
       platform: "Substack",
-      url: "https://scihan.substack.com",
+      url: "https://defter.selcukcihan.com",
       icon: "BookOpen"
     }
   ]
