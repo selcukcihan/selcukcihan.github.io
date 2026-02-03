@@ -9,16 +9,6 @@ import {
   BookOpen,
   Twitter,
   ExternalLink,
-  Award,
-  Briefcase,
-  GraduationCap,
-  MessageSquare,
-  ArrowRight,
-  CheckCircle,
-  Star,
-  Zap,
-  Code,
-  Cloud,
   Database,
 } from "lucide-react";
 import Image from "next/image";
@@ -27,7 +17,6 @@ import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { getIcon } from "@/utils/get-icon";
 
@@ -109,18 +98,10 @@ export default function Portfolio() {
                   }}
                   width="240"
                 />
-                <div className="absolute -bottom-1 -right-1 bg-green-400 dark:bg-green-500 rounded-full p-1.5 border-2 border-white dark:border-slate-950">
-                  <CheckCircle className="h-4 w-4 text-white" />
-                </div>
               </div>
 
               <div className="flex-1 text-center lg:text-left space-y-6">
                 <div className="space-y-4">
-                  <div className="inline-flex items-center px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
-                    <Star className="h-4 w-4 mr-2 text-blue-600 dark:text-blue-400" />
-                    Available for new projects
-                  </div>
-
                   <h1 className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white leading-tight">
                     {profileData.name}
                   </h1>
@@ -220,10 +201,6 @@ export default function Portfolio() {
         <div className="container px-4 md:px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 mb-4">
-                <MessageSquare className="h-4 w-4 mr-2" />
-                What clients say
-              </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                 Client Testimonials
               </h2>
@@ -240,17 +217,9 @@ export default function Portfolio() {
                 >
                   <CardContent className="p-6 md:p-8">
                     <div className="space-y-6">
-                      <div className="flex text-amber-400">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="h-5 w-5" />
-                        ))}
-                      </div>
-
                       <p className="text-gray-700 dark:text-gray-300 italic leading-relaxed">
                         "{testimonial.quote}"
                       </p>
-
-                      <Separator className="bg-slate-200 dark:bg-slate-700" />
 
                       <div className="space-y-2">
                         <p className="font-semibold text-gray-900 dark:text-white">
@@ -268,7 +237,6 @@ export default function Portfolio() {
                           onClick={() => handleTestimonialClick(testimonial)}
                         >
                           Read full testimonial
-                          <ArrowRight className="h-4 w-4 ml-1" />
                         </Button>
                       )}
                     </div>
@@ -285,10 +253,6 @@ export default function Portfolio() {
         <div className="container px-4 md:px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 mb-4">
-                <Briefcase className="h-4 w-4 mr-2" />
-                Professional Journey
-              </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                 Experience & Projects
               </h2>
@@ -335,18 +299,13 @@ export default function Portfolio() {
 
                     {experience.achievements && (
                       <div className="mb-6">
-                        <h4 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                          <Zap className="h-4 w-4 text-slate-500 dark:text-slate-400" />
+                        <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
                           Key Achievements
                         </h4>
-                        <ul className="space-y-2">
+                        <ul className="space-y-2 list-disc list-inside text-gray-700 dark:text-gray-300">
                           {experience.achievements.map((achievement, i) => (
-                            <li
-                              key={i}
-                              className="flex items-start gap-3 text-gray-700 dark:text-gray-300"
-                            >
-                              <CheckCircle className="h-5 w-5 text-green-600 dark:text-green-500 mt-0.5 flex-shrink-0" />
-                              <span>{parseAchievement(achievement)}</span>
+                            <li key={i}>
+                              {parseAchievement(achievement)}
                             </li>
                           ))}
                         </ul>
@@ -355,8 +314,7 @@ export default function Portfolio() {
 
                     {experience.tech && (
                       <div>
-                        <h4 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                          <Code className="h-4 w-4 text-slate-500 dark:text-slate-400" />
+                        <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
                           Technologies
                         </h4>
                         <div className="flex flex-wrap gap-2">
@@ -385,10 +343,6 @@ export default function Portfolio() {
         <div className="container px-4 md:px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 mb-4">
-                <Award className="h-4 w-4 mr-2" />
-                Credentials & Education
-              </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                 Qualifications & Certifications
               </h2>
@@ -400,10 +354,7 @@ export default function Portfolio() {
             <div className="grid gap-8 lg:grid-cols-2">
               <Card className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
                 <CardContent className="p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="p-3 bg-blue-600 dark:bg-blue-500 rounded-lg">
-                      <Cloud className="h-6 w-6 text-white" />
-                    </div>
+                  <div className="mb-6">
                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
                       AWS Certifications
                     </h3>
@@ -420,9 +371,6 @@ export default function Portfolio() {
                             src={certification.imageUrl}
                             width="80"
                           />
-                          <div className="absolute -top-2 -right-2 bg-green-500 dark:bg-green-600 rounded-full p-1">
-                            <CheckCircle className="h-3 w-3 text-white" />
-                          </div>
                         </div>
                         <div className="space-y-1 flex-1">
                           <h4 className="font-semibold text-gray-900 dark:text-white">
@@ -452,10 +400,7 @@ export default function Portfolio() {
 
               <Card className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
                 <CardContent className="p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="p-3 bg-blue-600 dark:bg-blue-500 rounded-lg">
-                      <GraduationCap className="h-6 w-6 text-white" />
-                    </div>
+                  <div className="mb-6">
                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
                       Education
                     </h3>
@@ -479,9 +424,6 @@ export default function Portfolio() {
                           <p className="text-sm text-gray-500 dark:text-gray-500 leading-relaxed">
                             {edu.details}
                           </p>
-                        )}
-                        {index < education.length - 1 && (
-                          <Separator className="bg-slate-200 dark:bg-slate-700" />
                         )}
                       </div>
                     ))}
