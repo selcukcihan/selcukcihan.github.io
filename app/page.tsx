@@ -46,7 +46,7 @@ function parseAchievement(achievement: string): React.ReactNode {
       <Link
         key={match.index}
         href={match[1]}
-        className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 underline inline-flex items-center gap-1 transition-colors"
+        className="text-slate-900 dark:text-slate-100 hover:text-slate-950 dark:hover:text-slate-200 underline inline-flex items-center gap-1 transition-colors"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -132,8 +132,8 @@ export default function Portfolio() {
                         size="lg"
                         className={`gap-2 transition-colors duration-200 ${
                           isEmail
-                            ? "bg-blue-600 hover:bg-blue-700 text-white"
-                            : "border border-slate-300 dark:border-slate-700 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 dark:hover:border-blue-500"
+                            ? "bg-slate-900 hover:bg-slate-950 text-white"
+                            : "border border-slate-300 dark:border-slate-700 hover:border-slate-600 hover:text-slate-900 dark:hover:text-slate-200 dark:hover:border-slate-400"
                         }`}
                       >
                         <Link
@@ -160,7 +160,7 @@ export default function Portfolio() {
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+                <div className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100">
                   10+
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -168,7 +168,7 @@ export default function Portfolio() {
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+                <div className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100">
                   50+
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -176,7 +176,7 @@ export default function Portfolio() {
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+                <div className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100">
                   2
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -184,7 +184,7 @@ export default function Portfolio() {
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+                <div className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100">
                   100%
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -233,7 +233,7 @@ export default function Portfolio() {
                       {testimonial.fullTestimonial && (
                         <Button
                           variant="ghost"
-                          className="group-hover:text-blue-600 dark:group-hover:text-blue-400 p-0 h-auto font-medium"
+                          className="group-hover:text-slate-900 dark:group-hover:text-slate-100 p-0 h-auto font-medium"
                           onClick={() => handleTestimonialClick(testimonial)}
                         >
                           Read full testimonial
@@ -265,7 +265,7 @@ export default function Portfolio() {
               {careerExperiences.map((experience, index) => (
                 <Card
                   key={index}
-                  className="group transition-shadow duration-200 hover:shadow-md border border-slate-200 dark:border-slate-800 border-l-2 border-l-blue-600 dark:border-l-blue-500 bg-white dark:bg-slate-900"
+                  className="group transition-shadow duration-200 hover:shadow-md border border-slate-200 dark:border-slate-800 border-l-2 border-l-slate-900 dark:border-l-slate-700 bg-white dark:bg-slate-900"
                 >
                   <CardContent className="p-8">
                     <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
@@ -277,7 +277,7 @@ export default function Portfolio() {
                           {experience.website && (
                             <Link
                               href={experience.website.url}
-                              className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 inline-flex items-center gap-1 transition-colors"
+                              className="text-sm text-slate-900 dark:text-slate-100 hover:text-slate-950 dark:hover:text-slate-200 inline-flex items-center gap-1 transition-colors"
                               target="_blank"
                               rel="noopener noreferrer"
                             >
@@ -376,7 +376,7 @@ export default function Portfolio() {
                           <h4 className="font-semibold text-gray-900 dark:text-white">
                             <Link
                               href={certification.url}
-                              className="inline-flex items-center gap-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                              className="inline-flex items-center gap-1 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
                               target="_blank"
                               rel="noopener noreferrer"
                             >
@@ -450,7 +450,7 @@ export default function Portfolio() {
               <Button
                 asChild
                 size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto transition-colors duration-200"
+                className="bg-slate-900 hover:bg-slate-950 text-white w-full sm:w-auto transition-colors duration-200"
               >
                 <Link href="mailto:selcukcihan@gmail.com">
                   <Mail className="h-5 w-5 mr-2" />
@@ -461,7 +461,7 @@ export default function Portfolio() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border border-slate-300 dark:border-slate-700 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 dark:hover:border-blue-500 w-full sm:w-auto transition-colors duration-200"
+                className="border border-slate-300 dark:border-slate-700 hover:border-slate-600 hover:text-slate-900 dark:hover:text-slate-200 dark:hover:border-slate-400 w-full sm:w-auto transition-colors duration-200"
               >
                 <Link
                   href="https://linkedin.com/in/selcukcihan"
