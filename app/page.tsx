@@ -57,7 +57,7 @@ function parseAchievement(achievement: string): React.ReactNode {
       <Link
         key={match.index}
         href={match[1]}
-        className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline inline-flex items-center gap-1 transition-colors"
+        className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 underline inline-flex items-center gap-1 transition-colors"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -91,18 +91,16 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+    <div className="min-h-screen w-full bg-slate-50 dark:bg-slate-950">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-teal-600/10"></div>
         <div className="container relative px-4 md:px-6 py-16 md:py-24">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col lg:flex-row items-center lg:items-start space-y-8 lg:space-y-0 lg:space-x-12">
               <div className="flex-shrink-0 relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-lg opacity-30 animate-pulse"></div>
                 <Image
                   alt="Profile Picture"
-                  className="relative rounded-full border-4 border-white shadow-2xl"
+                  className="relative rounded-full border-2 border-slate-200 dark:border-slate-800 shadow-lg w-48 md:w-60"
                   height="240"
                   src={profileData.image}
                   style={{
@@ -111,23 +109,23 @@ export default function Portfolio() {
                   }}
                   width="240"
                 />
-                <div className="absolute -bottom-2 -right-2 bg-green-500 rounded-full p-2 border-4 border-white">
-                  <CheckCircle className="h-6 w-6 text-white" />
+                <div className="absolute -bottom-1 -right-1 bg-green-400 dark:bg-green-500 rounded-full p-1.5 border-2 border-white dark:border-slate-950">
+                  <CheckCircle className="h-4 w-4 text-white" />
                 </div>
               </div>
 
               <div className="flex-1 text-center lg:text-left space-y-6">
                 <div className="space-y-4">
-                  <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 rounded-full text-sm font-medium text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-700">
-                    <Star className="h-4 w-4 mr-2 text-yellow-500" />
+                  <div className="inline-flex items-center px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                    <Star className="h-4 w-4 mr-2 text-blue-600 dark:text-blue-400" />
                     Available for new projects
                   </div>
 
-                  <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent leading-tight">
+                  <h1 className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white leading-tight">
                     {profileData.name}
                   </h1>
 
-                  <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-medium">
+                  <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 font-medium">
                     {profileData.title}
                   </p>
                 </div>
@@ -151,10 +149,10 @@ export default function Portfolio() {
                         asChild
                         variant={isEmail ? "default" : "outline"}
                         size="lg"
-                        className={`gap-2 transition-all duration-200 hover:scale-105 ${
+                        className={`gap-2 transition-colors duration-200 ${
                           isEmail
-                            ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg"
-                            : "border-2 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
+                            ? "bg-blue-600 hover:bg-blue-700 text-white"
+                            : "border border-slate-300 dark:border-slate-700 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 dark:hover:border-blue-500"
                         }`}
                       >
                         <Link
@@ -176,10 +174,10 @@ export default function Portfolio() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm">
+      <section className="py-16 bg-white dark:bg-slate-900">
         <div className="container px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
                   7+
@@ -189,7 +187,7 @@ export default function Portfolio() {
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-purple-600 dark:text-purple-400">
+                <div className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
                   50+
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -197,7 +195,7 @@ export default function Portfolio() {
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-teal-600 dark:text-teal-400">
+                <div className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
                   2
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -205,7 +203,7 @@ export default function Portfolio() {
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-orange-600 dark:text-orange-400">
+                <div className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
                   100%
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -222,7 +220,7 @@ export default function Portfolio() {
         <div className="container px-4 md:px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-100 to-teal-100 dark:from-green-900/30 dark:to-teal-900/30 rounded-full text-sm font-medium text-green-700 dark:text-green-300 border border-green-200 dark:border-green-700 mb-4">
+              <div className="inline-flex items-center px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 mb-4">
                 <MessageSquare className="h-4 w-4 mr-2" />
                 What clients say
               </div>
@@ -238,13 +236,13 @@ export default function Portfolio() {
               {testimonials.map((testimonial) => (
                 <Card
                   key={testimonial.id}
-                  className="group hover:shadow-2xl transition-all duration-200 hover:-translate-y-2 border-0 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm"
+                  className="group transition-shadow duration-200 hover:shadow-md border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900"
                 >
-                  <CardContent className="p-8">
+                  <CardContent className="p-6 md:p-8">
                     <div className="space-y-6">
-                      <div className="flex text-yellow-400">
+                      <div className="flex text-amber-400">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="h-5 w-5 fill-current" />
+                          <Star key={i} className="h-5 w-5" />
                         ))}
                       </div>
 
@@ -252,7 +250,7 @@ export default function Portfolio() {
                         "{testimonial.quote}"
                       </p>
 
-                      <Separator className="bg-gradient-to-r from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700" />
+                      <Separator className="bg-slate-200 dark:bg-slate-700" />
 
                       <div className="space-y-2">
                         <p className="font-semibold text-gray-900 dark:text-white">
@@ -270,7 +268,7 @@ export default function Portfolio() {
                           onClick={() => handleTestimonialClick(testimonial)}
                         >
                           Read full testimonial
-                          <ArrowRight className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" />
+                          <ArrowRight className="h-4 w-4 ml-1" />
                         </Button>
                       )}
                     </div>
@@ -283,11 +281,11 @@ export default function Portfolio() {
       </section>
 
       {/* Experience Section */}
-      <section className="py-16 bg-white/30 dark:bg-slate-800/30 backdrop-blur-sm">
+      <section className="py-16 bg-slate-50 dark:bg-slate-900">
         <div className="container px-4 md:px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 rounded-full text-sm font-medium text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-700 mb-4">
+              <div className="inline-flex items-center px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 mb-4">
                 <Briefcase className="h-4 w-4 mr-2" />
                 Professional Journey
               </div>
@@ -303,7 +301,7 @@ export default function Portfolio() {
               {careerExperiences.map((experience, index) => (
                 <Card
                   key={index}
-                  className="group hover:shadow-xl transition-all duration-200 border-l-4 border-l-blue-500 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm"
+                  className="group transition-shadow duration-200 hover:shadow-md border border-slate-200 dark:border-slate-800 border-l-2 border-l-blue-600 dark:border-l-blue-500 bg-white dark:bg-slate-900"
                 >
                   <CardContent className="p-8">
                     <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
@@ -329,7 +327,7 @@ export default function Portfolio() {
                         </p>
                       </div>
                       <div className="mt-2 lg:mt-0">
-                        <span className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">
+                        <span className="inline-flex items-center px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-full border border-slate-200 dark:border-slate-700">
                           {experience.period}
                         </span>
                       </div>
@@ -338,7 +336,7 @@ export default function Portfolio() {
                     {experience.achievements && (
                       <div className="mb-6">
                         <h4 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                          <Zap className="h-4 w-4 text-yellow-500" />
+                          <Zap className="h-4 w-4 text-slate-500 dark:text-slate-400" />
                           Key Achievements
                         </h4>
                         <ul className="space-y-2">
@@ -347,7 +345,7 @@ export default function Portfolio() {
                               key={i}
                               className="flex items-start gap-3 text-gray-700 dark:text-gray-300"
                             >
-                              <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                              <CheckCircle className="h-5 w-5 text-green-600 dark:text-green-500 mt-0.5 flex-shrink-0" />
                               <span>{parseAchievement(achievement)}</span>
                             </li>
                           ))}
@@ -358,7 +356,7 @@ export default function Portfolio() {
                     {experience.tech && (
                       <div>
                         <h4 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                          <Code className="h-4 w-4 text-blue-500" />
+                          <Code className="h-4 w-4 text-slate-500 dark:text-slate-400" />
                           Technologies
                         </h4>
                         <div className="flex flex-wrap gap-2">
@@ -366,7 +364,7 @@ export default function Portfolio() {
                             <Badge
                               key={i}
                               variant="secondary"
-                              className="bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 text-gray-800 dark:text-gray-200 hover:from-blue-100 hover:to-purple-100 dark:hover:from-blue-900/30 dark:hover:to-purple-900/30 transition-all duration-200"
+                              className="bg-slate-100 dark:bg-slate-800 text-gray-800 dark:text-gray-200 border border-slate-200 dark:border-slate-700 transition-colors duration-200"
                             >
                               {tech}
                             </Badge>
@@ -387,7 +385,7 @@ export default function Portfolio() {
         <div className="container px-4 md:px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-orange-100 to-red-100 dark:from-orange-900/30 dark:to-red-900/30 rounded-full text-sm font-medium text-orange-700 dark:text-orange-300 border border-orange-200 dark:border-orange-700 mb-4">
+              <div className="inline-flex items-center px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 mb-4">
                 <Award className="h-4 w-4 mr-2" />
                 Credentials & Education
               </div>
@@ -400,10 +398,10 @@ export default function Portfolio() {
             </div>
 
             <div className="grid gap-8 lg:grid-cols-2">
-              <Card className="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 border-orange-200 dark:border-orange-700">
+              <Card className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
                 <CardContent className="p-8">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="p-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg">
+                    <div className="p-3 bg-blue-600 dark:bg-blue-500 rounded-lg">
                       <Cloud className="h-6 w-6 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -422,15 +420,15 @@ export default function Portfolio() {
                             src={certification.imageUrl}
                             width="80"
                           />
-                          <div className="absolute -top-2 -right-2 bg-green-500 rounded-full p-1">
-                            <CheckCircle className="h-4 w-4 text-white" />
+                          <div className="absolute -top-2 -right-2 bg-green-500 dark:bg-green-600 rounded-full p-1">
+                            <CheckCircle className="h-3 w-3 text-white" />
                           </div>
                         </div>
                         <div className="space-y-1 flex-1">
                           <h4 className="font-semibold text-gray-900 dark:text-white">
                             <Link
                               href={certification.url}
-                              className="inline-flex items-center gap-1 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
+                              className="inline-flex items-center gap-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                               target="_blank"
                               rel="noopener noreferrer"
                             >
@@ -452,10 +450,10 @@ export default function Portfolio() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border-blue-200 dark:border-blue-700">
+              <Card className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
                 <CardContent className="p-8">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="p-3 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg">
+                    <div className="p-3 bg-blue-600 dark:bg-blue-500 rounded-lg">
                       <GraduationCap className="h-6 w-6 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -470,7 +468,7 @@ export default function Portfolio() {
                           <h4 className="font-semibold text-gray-900 dark:text-white">
                             {edu.degree}
                           </h4>
-                          <span className="inline-flex items-center px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded">
+                          <span className="inline-flex items-center px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium rounded border border-slate-200 dark:border-slate-700">
                             {edu.year}
                           </span>
                         </div>
@@ -483,7 +481,7 @@ export default function Portfolio() {
                           </p>
                         )}
                         {index < education.length - 1 && (
-                          <Separator className="bg-gradient-to-r from-blue-200 to-indigo-200 dark:from-blue-700 dark:to-indigo-700" />
+                          <Separator className="bg-slate-200 dark:bg-slate-700" />
                         )}
                       </div>
                     ))}
@@ -496,13 +494,13 @@ export default function Portfolio() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600">
+      <section className="py-16 bg-slate-50 dark:bg-slate-900">
         <div className="container px-4 md:px-6">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
               Ready to Build Something Amazing?
             </h2>
-            <p className="text-xl mb-8 opacity-90">
+            <p className="text-xl mb-8 text-gray-600 dark:text-gray-300">
               Let's discuss your next project and bring your ideas to life with
               cutting-edge technology.
             </p>
@@ -510,7 +508,7 @@ export default function Portfolio() {
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-blue-600 hover:bg-gray-100 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
+                className="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto transition-colors duration-200"
               >
                 <Link href="mailto:selcukcihan@gmail.com">
                   <Mail className="h-5 w-5 mr-2" />
@@ -520,7 +518,8 @@ export default function Portfolio() {
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-blue-600 hover:bg-gray-100 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
+                variant="outline"
+                className="border border-slate-300 dark:border-slate-700 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 dark:hover:border-blue-500 w-full sm:w-auto transition-colors duration-200"
               >
                 <Link
                   href="https://linkedin.com/in/selcukcihan"
@@ -554,7 +553,7 @@ export default function Portfolio() {
                     <Link
                       key={social.platform}
                       href={social.url}
-                      className="p-3 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors hover:scale-110 transform duration-200"
+                      className="p-3 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors duration-200"
                       target={
                         social.platform === "Email" ? undefined : "_blank"
                       }
@@ -578,8 +577,8 @@ export default function Portfolio() {
       {/* Testimonial Modal */}
       {selectedTestimonial && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl">
-            <div className="p-8">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-xl">
+            <div className="p-4 md:p-8">
               <div className="flex justify-between items-start mb-6">
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
                   {selectedTestimonial.author} - {selectedTestimonial.title}
