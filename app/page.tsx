@@ -518,8 +518,8 @@ export default function Portfolio() {
 
       {/* Testimonial Modal */}
       {selectedTestimonial && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-xl">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={closeModal}>
+          <div className="bg-white dark:bg-slate-800 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-xl" onClick={(e) => e.stopPropagation()}>
             <div className="p-4 md:p-8">
               <div className="flex justify-between items-start mb-6">
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
