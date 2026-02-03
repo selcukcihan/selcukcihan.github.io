@@ -36,6 +36,7 @@ import { testimonials } from "./data/testimonials";
 import { careerExperiences } from "./data/career";
 import { education } from "./data/education";
 import { certifications } from "./data/certifications";
+import { Testimonial } from "./types/data";
 
 // Helper function to parse achievement strings and convert HTML links to React components
 function parseAchievement(achievement: string): React.ReactNode {
@@ -77,12 +78,12 @@ function parseAchievement(achievement: string): React.ReactNode {
 }
 
 export default function Portfolio() {
-  const [selectedTestimonial, setSelectedTestimonial] = useState<string | null>(
+  const [selectedTestimonial, setSelectedTestimonial] = useState<Testimonial | null>(
     null
   );
 
   const handleTestimonialClick = (testimonial: any) => {
-    setSelectedTestimonial(testimonial.fullTestimonial);
+    setSelectedTestimonial(testimonial);
   };
 
   const closeModal = () => {
@@ -581,7 +582,7 @@ export default function Portfolio() {
             <div className="p-8">
               <div className="flex justify-between items-start mb-6">
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                  Full Testimonial
+                  {selectedTestimonial.author} - {selectedTestimonial.title}
                 </h3>
                 <Button
                   variant="ghost"
@@ -594,7 +595,7 @@ export default function Portfolio() {
               </div>
               <div className="prose prose-gray dark:prose-invert max-w-none">
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-                  {selectedTestimonial}
+                  {selectedTestimonial.fullTestimonial}
                 </p>
               </div>
             </div>
