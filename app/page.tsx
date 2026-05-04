@@ -18,6 +18,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { ToptalBadge } from "@/components/toptal-badge";
 import { getIcon } from "@/utils/get-icon";
 
 import { profileData } from "./data/profile";
@@ -83,10 +84,10 @@ export default function Portfolio() {
     <div className="min-h-screen w-full bg-slate-50 dark:bg-slate-950">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="container relative px-4 md:px-6 py-16 md:py-24">
+        <div className="container relative px-4 md:px-6 pt-16 pb-8 md:pt-24 md:pb-12">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col lg:flex-row items-center lg:items-start space-y-8 lg:space-y-0 lg:space-x-12">
-              <div className="flex-shrink-0 relative">
+              <div className="flex-shrink-0 relative flex flex-col items-center">
                 <Image
                   alt="Profile Picture"
                   className="relative rounded-full border-2 border-slate-200 dark:border-slate-800 shadow-lg w-48 md:w-60"
@@ -98,6 +99,9 @@ export default function Portfolio() {
                   }}
                   width="240"
                 />
+                <div className="mt-5">
+                  <ToptalBadge />
+                </div>
               </div>
 
               <div className="flex-1 text-center lg:text-left space-y-6">
