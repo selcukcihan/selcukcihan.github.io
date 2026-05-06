@@ -8,7 +8,7 @@ export const careerExperiences: CareerExperience[] = [
       url: "https://rticoutdoors.com",
     },
     role: "Contractor",
-    period: "2023 - Present",
+    period: "2023 - 2026",
     description: "",
     achievements: [
       "Created mobile device management tools.",
@@ -42,38 +42,13 @@ export const careerExperiences: CareerExperience[] = [
     tech: ["Python", "Serverless", "Lambda", "AWS"],
   },
   {
-    company: "Scriber",
-    website: {
-      name: "scriber.to",
-      url: "https://scriber.to",
-    },
-    role: "Contractor",
-    period: "2021 - 2022",
-    description: "",
-    achievements: [
-      "Created the serverless GraphQL backend for scriber.to, which is a platform for financial writers.",
-      "Implemented payments with Stripe Connect.",
-      "Built analytics application to provide the financial writers with KPIs.",
-    ],
-    tech: [
-      "Typescript",
-      "Serverless",
-      "Lambda",
-      "AppSync",
-      "DynamoDB",
-      "RDS",
-      "Stripe",
-      "EventBridge",
-    ],
-  },
-  {
     company: "Tellimer",
     website: {
       name: "tellimer.com",
       url: "https://tellimer.com",
     },
     role: "Contractor",
-    period: "2019 - 2021",
+    period: "2019 - 2022",
     description: "",
     achievements: [
       "Created the API and step functions orchestrator that forms the machine learning pipeline for parsel.ai, which is a machine learning SAAS offering.",
@@ -83,6 +58,9 @@ export const careerExperiences: CareerExperience[] = [
       "Built a serverless app that periodically maintains the sitemap for various web apps.",
       "Created GraphQL APIs with AppSync, connecting various data sources like DynamoDB & RDS.",
       "Created serverless workflows using AWS Step Functions to integrate with external services.",
+      "Created the serverless GraphQL backend for a substack like platform for financial writers.",
+      "Implemented platform payments with Stripe Connect.",
+      "Built analytics application to provide the financial writers with KPIs.",
     ],
     tech: "TypeScript, Python, Serverless, Lambda, API Gateway, DynamoDB, Stripe, EventBridge, AppSync, Cognito, Datadog".split(
       ", "

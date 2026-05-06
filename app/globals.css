@@ -30,22 +30,6 @@
   }
 }
 
-.selc-image-container {
-  width: 96px;
-  height: 96px;
-}
-
-@media (min-width: 976px) {
-  .selc-image-container {
-    width: 192px;
-    height: 192px;
-  }
-}
-
-.cryptedmail:after {
-  content: attr(data-name) "@" attr(data-domain); 
-}
-
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
