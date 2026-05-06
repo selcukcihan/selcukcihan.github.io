@@ -59,9 +59,8 @@ experience:
       - "Datadog"
     descriptions:
       - "Created serverless backends for multiple products, including a machine learning SAAS application and a substack like platform for financial writers."
-      - "Implemented platform payments with Stripe Connect."
       - "Built analytics application to provide the financial writers with KPIs."
-      - "Mentored team members and led design sessions to determine the correct system architecture."
+      - "Mentored team members and led system architecture design sessions."
       - "Took the initiative to improve operational excellence through active monitoring and improved visibility."
       - "Implemented workflows for ingesting 3rd party financial articles for tellimer.com."
       - "Architected an article recommender and an article summarizer for tellimer.com."
@@ -123,7 +122,6 @@ experience:
       - "DevOps"
     descriptions:
       - "Supported the workflow engine serving banking applications such as loans, customer complaints etc."
-      - "Set up elastic to index workflow engine documents, enabling powerful search for the end user."
       - "Designed a workforce management system that empowers the bank’s operation center."
 
   - title: "Software Development Engineer"

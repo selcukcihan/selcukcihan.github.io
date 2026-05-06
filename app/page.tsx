@@ -1,32 +1,18 @@
-"use client";
-
 /* eslint-disable react/no-unescaped-entities */
 
 import {
-  Mail,
-  Github,
-  Linkedin,
-  BookOpen,
-  Twitter,
   ExternalLink,
-  Database,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
+import { TestimonialsSection } from "@/components/testimonials-section";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 import { ToptalBadge } from "@/components/toptal-badge";
+import { getPortfolioData } from "@/lib/candidate-profile";
 import { getIcon } from "@/utils/get-icon";
-
-import { profileData } from "./data/profile";
-import { testimonials } from "./data/testimonials";
-import { careerExperiences } from "./data/career";
-import { education } from "./data/education";
-import { certifications } from "./data/certifications";
-import { Testimonial } from "./types/data";
 
 // Helper function to parse achievement strings and convert HTML links to React components
 function parseAchievement(achievement: string): React.ReactNode {
@@ -68,17 +54,13 @@ function parseAchievement(achievement: string): React.ReactNode {
 }
 
 export default function Portfolio() {
-  const [selectedTestimonial, setSelectedTestimonial] = useState<Testimonial | null>(
-    null
-  );
-
-  const handleTestimonialClick = (testimonial: any) => {
-    setSelectedTestimonial(testimonial);
-  };
-
-  const closeModal = () => {
-    setSelectedTestimonial(null);
-  };
+  const {
+    profileData,
+    testimonials,
+    careerExperiences,
+    education,
+    certifications,
+  } = getPortfolioData();
 
   return (
     <div className="min-h-screen w-full bg-slate-50 dark:bg-slate-950">
@@ -123,7 +105,7 @@ export default function Portfolio() {
                   ))}
                 </div>
 
-                <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+                <div className="flex flex-wrap xl:flex-nowrap gap-2 justify-center lg:justify-start">
                   {profileData.socials.map((social, index) => {
                     const Icon = getIcon(social.icon);
                     const isEmail = social.platform === "Email";
@@ -136,8 +118,8 @@ export default function Portfolio() {
                         size="lg"
                         className={`gap-2 transition-colors duration-200 ${
                           isEmail
-                            ? "bg-slate-900 hover:bg-slate-950 text-white"
-                            : "border border-slate-300 dark:border-slate-700 hover:border-slate-600 hover:text-slate-900 dark:hover:text-slate-200 dark:hover:border-slate-400"
+                            ? "bg-slate-900 hover:bg-slate-950 text-white px-4 w-32"
+                            : "border border-slate-300 dark:border-slate-700 hover:border-slate-600 hover:text-slate-900 dark:hover:text-slate-200 dark:hover:border-slate-400 px-4 w-32"
                         }`}
                       >
                         <Link
@@ -181,7 +163,7 @@ export default function Portfolio() {
               </div>
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100">
-                  2
+                  {certifications.length}
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                   AWS Certifications
@@ -200,57 +182,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-16">
-        <div className="container px-4 md:px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                Client Testimonials
-              </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300">
-                Trusted by teams at leading companies worldwide
-              </p>
-            </div>
-
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {testimonials.map((testimonial) => (
-                <Card
-                  key={testimonial.id}
-                  className="group transition-shadow duration-200 hover:shadow-md border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900"
-                >
-                  <CardContent className="p-6 md:p-8">
-                    <div className="space-y-6">
-                      <p className="text-gray-700 dark:text-gray-300 italic leading-relaxed">
-                        "{testimonial.quote}"
-                      </p>
-
-                      <div className="space-y-2">
-                        <p className="font-semibold text-gray-900 dark:text-white">
-                          {testimonial.author}
-                        </p>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
-                          {testimonial.title}, {testimonial.company}
-                        </p>
-                      </div>
-
-                      {testimonial.fullTestimonial && (
-                        <Button
-                          variant="ghost"
-                          className="group-hover:text-slate-900 dark:group-hover:text-slate-100 p-0 h-auto font-medium"
-                          onClick={() => handleTestimonialClick(testimonial)}
-                        >
-                          Read full testimonial
-                        </Button>
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <TestimonialsSection testimonials={testimonials} />
 
       {/* Experience Section */}
       <section className="py-16 bg-slate-50 dark:bg-slate-900">
@@ -350,20 +282,40 @@ export default function Portfolio() {
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                 Qualifications & Certifications
               </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300">
-                Continuous learning and professional development
-              </p>
             </div>
 
             <div className="grid gap-8 lg:grid-cols-2">
               <Card className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
                 <CardContent className="p-8">
-                  <div className="mb-6">
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                      AWS Certifications
-                    </h3>
+                  <div className="space-y-6">
+                    {education.map((edu, index) => (
+                      <div key={index} className="space-y-3">
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+                          <h4 className="font-semibold text-gray-900 dark:text-white">
+                            {edu.degree}
+                          </h4>
+                          {edu.year && (
+                            <span className="inline-flex items-center px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium rounded border border-slate-200 dark:border-slate-700">
+                              {edu.year}
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-gray-600 dark:text-gray-400 font-medium">
+                          {edu.university}
+                        </p>
+                        {edu.details && (
+                          <p className="text-sm text-gray-500 dark:text-gray-500 leading-relaxed">
+                            {edu.details}
+                          </p>
+                        )}
+                      </div>
+                    ))}
                   </div>
+                </CardContent>
+              </Card>
 
+              <Card className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                <CardContent className="p-8">
                   <div className="space-y-6">
                     {certifications.map((certification, index) => (
                       <div key={index} className="flex items-start gap-4">
@@ -401,80 +353,6 @@ export default function Portfolio() {
                   </div>
                 </CardContent>
               </Card>
-
-              <Card className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                <CardContent className="p-8">
-                  <div className="mb-6">
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                      Education
-                    </h3>
-                  </div>
-
-                  <div className="space-y-6">
-                    {education.map((edu, index) => (
-                      <div key={index} className="space-y-3">
-                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
-                          <h4 className="font-semibold text-gray-900 dark:text-white">
-                            {edu.degree}
-                          </h4>
-                          <span className="inline-flex items-center px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium rounded border border-slate-200 dark:border-slate-700">
-                            {edu.year}
-                          </span>
-                        </div>
-                        <p className="text-gray-600 dark:text-gray-400 font-medium">
-                          {edu.university}
-                        </p>
-                        {edu.details && (
-                          <p className="text-sm text-gray-500 dark:text-gray-500 leading-relaxed">
-                            {edu.details}
-                          </p>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-slate-50 dark:bg-slate-900">
-        <div className="container px-4 md:px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-              Ready to Build Something Amazing?
-            </h2>
-            <p className="text-xl mb-8 text-gray-600 dark:text-gray-300">
-              Let's discuss your next project and bring your ideas to life with
-              cutting-edge technology.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                asChild
-                size="lg"
-                className="bg-slate-900 hover:bg-slate-950 text-white w-full sm:w-auto transition-colors duration-200"
-              >
-                <Link href="mailto:selcukcihan@gmail.com">
-                  <Mail className="h-5 w-5 mr-2" />
-                  Get in touch
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border border-slate-300 dark:border-slate-700 hover:border-slate-600 hover:text-slate-900 dark:hover:text-slate-200 dark:hover:border-slate-400 w-full sm:w-auto transition-colors duration-200"
-              >
-                <Link
-                  href="https://linkedin.com/in/selcukcihan"
-                  target="_blank"
-                >
-                  <Linkedin className="h-5 w-5 mr-2" />
-                  <span>Connect on LinkedIn</span>
-                </Link>
-              </Button>
             </div>
           </div>
         </div>
@@ -519,34 +397,6 @@ export default function Portfolio() {
           </div>
         </div>
       </footer>
-
-      {/* Testimonial Modal */}
-      {selectedTestimonial && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={closeModal}>
-          <div className="bg-white dark:bg-slate-800 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-xl" onClick={(e) => e.stopPropagation()}>
-            <div className="p-4 md:p-8">
-              <div className="flex justify-between items-start mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                  {selectedTestimonial.author} - {selectedTestimonial.title}
-                </h3>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={closeModal}
-                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
-                >
-                  ✕
-                </Button>
-              </div>
-              <div className="prose prose-gray dark:prose-invert max-w-none">
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-                  {selectedTestimonial.fullTestimonial}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
