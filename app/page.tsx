@@ -140,48 +140,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-white dark:bg-slate-900">
-        <div className="container px-4 md:px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100">
-                  10+
-                </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                  Years on AWS
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100">
-                  50+
-                </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                  Projects Delivered
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100">
-                  {certifications.length}
-                </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                  AWS Certifications
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100">
-                  100%
-                </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                  Client Satisfaction
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <TestimonialsSection testimonials={testimonials} />
 
       {/* Experience Section */}
