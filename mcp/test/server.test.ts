@@ -31,7 +31,7 @@ describe("MCP server contract", () => {
     const uris = resources.map(({ uri }) => uri);
     expect(uris).toContain("career://profile");
     expect(uris).toContain("career://metadata");
-    expect(uris).not.toContain("career://preferences");
+    expect(uris).toContain("career://preferences");
     expect(uris).not.toContain("career://testimonials");
   });
 
@@ -84,14 +84,26 @@ describe("MCP server contract", () => {
     expect(JSON.parse(text.text)).toEqual(result.structuredContent);
   });
 
-  it("clearly rejects unpublished sections", async () => {
+  it("serves structured career preferences", async () => {
     const result = await client.callTool({
       name: "get_career_section",
       arguments: { section: "preferences" },
     });
     expect(result.structuredContent).toMatchObject({
-      error: "section_unavailable",
       section: "preferences",
+      data: {
+        baseTimeZone: "UTC+3",
+        overlapAvailability: {
+          timeZone: "UTC+3",
+          startTime: "08:00",
+          endTime: "23:00",
+        },
+        commercialTerms: {
+          contractModels: ["B2B"],
+          paymentCurrency: "USD",
+          hourlyRate: 100,
+        },
+      },
     });
   });
 

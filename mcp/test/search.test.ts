@@ -15,6 +15,8 @@ describe("career search", () => {
     ["Scala", "example-role"],
     ["GraphQL", "example-role"],
     ["NodeJS", "node-js"],
+    ["B2B", "preferences"],
+    ["async communication", "preferences"],
   ])("finds aliases and compound labels for %s", (query, expectedId) => {
     expect(searchCareer(index, query, undefined, 10).map(({ id }) => id)).toContain(
       expectedId,

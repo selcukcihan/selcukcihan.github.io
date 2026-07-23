@@ -38,10 +38,45 @@ describe("public projection", () => {
 
   it("keeps empty preferences and narrative unpublished", () => {
     const source = sentinelSource();
-    source.career_preferences = {};
+    source.career_preferences = {
+      base_time_zone: null,
+      overlap_availability: {
+        time_zone: null,
+        start_time: null,
+        end_time: null,
+      },
+      commercial_terms: {
+        contract_models: [],
+        payment_currency: null,
+        hourly_rate: null,
+      },
+    };
     source.career_narrative = {};
     const projection = projectPublicProfile(validateSource(source));
     expect(projection.careerPreferences).toBeNull();
     expect(projection.careerNarrative).toBeNull();
+  });
+
+  it("publishes structured collaboration and commercial preferences", () => {
+    const projection = projectPublicProfile(validateSource(sentinelSource()));
+    expect(projection.careerPreferences).toEqual({
+      employmentTypes: ["contract"],
+      baseTimeZone: "UTC+3",
+      overlapAvailability: {
+        timeZone: "UTC+3",
+        startTime: "08:00",
+        endTime: "23:00",
+      },
+      commercialTerms: {
+        contractModels: ["B2B"],
+        paymentCurrency: "USD",
+        hourlyRate: 100,
+      },
+      teamEnvironments: [
+        "Autonomy",
+        "End-to-end ownership",
+        "Async communication",
+      ],
+    });
   });
 });

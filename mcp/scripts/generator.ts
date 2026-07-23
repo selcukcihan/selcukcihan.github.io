@@ -141,6 +141,45 @@ function projectPreferences(
   addIfMeaningful(result, "seniorityLevels", source.seniority_levels);
   addIfMeaningful(result, "employmentTypes", source.employment_types);
   addIfMeaningful(result, "workModes", source.work_modes);
+  addIfMeaningful(result, "baseTimeZone", source.base_time_zone);
+  if (source.overlap_availability) {
+    const overlapAvailability: Record<string, unknown> = {};
+    addIfMeaningful(
+      overlapAvailability,
+      "timeZone",
+      source.overlap_availability.time_zone,
+    );
+    addIfMeaningful(
+      overlapAvailability,
+      "startTime",
+      source.overlap_availability.start_time,
+    );
+    addIfMeaningful(
+      overlapAvailability,
+      "endTime",
+      source.overlap_availability.end_time,
+    );
+    addIfMeaningful(result, "overlapAvailability", overlapAvailability);
+  }
+  if (source.commercial_terms) {
+    const commercialTerms: Record<string, unknown> = {};
+    addIfMeaningful(
+      commercialTerms,
+      "contractModels",
+      source.commercial_terms.contract_models,
+    );
+    addIfMeaningful(
+      commercialTerms,
+      "paymentCurrency",
+      source.commercial_terms.payment_currency,
+    );
+    addIfMeaningful(
+      commercialTerms,
+      "hourlyRate",
+      source.commercial_terms.hourly_rate,
+    );
+    addIfMeaningful(result, "commercialTerms", commercialTerms);
+  }
   addIfMeaningful(result, "preferredLocations", source.preferred_locations);
   addIfMeaningful(result, "preferredTimeZones", source.preferred_time_zones);
   addIfMeaningful(result, "domains", source.domains);

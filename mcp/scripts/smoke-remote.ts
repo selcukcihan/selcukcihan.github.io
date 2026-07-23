@@ -14,10 +14,11 @@ const transport = new StreamableHTTPClientTransport(new URL(endpoint));
 
 try {
   await client.connect(transport);
-  const [resources, tools, metadata, search] = await Promise.all([
+  const [resources, tools, metadata, preferences, search] = await Promise.all([
     client.listResources(),
     client.listTools(),
     client.readResource({ uri: "career://metadata" }),
+    client.readResource({ uri: "career://preferences" }),
     client.callTool({
       name: "search_career",
       arguments: { query: "distributed systems", limit: 3 },
@@ -32,6 +33,7 @@ try {
       resources: resources.resources.length,
       tools: tools.tools.map(({ name }) => name),
       metadata: metadata.contents,
+      preferences: preferences.contents,
       search: search.structuredContent,
     })}\n`,
   );

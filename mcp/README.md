@@ -46,6 +46,8 @@ Example questions:
 - Summarize this person's distributed-systems experience and cite item IDs.
 - Find public evidence of TypeScript and Python experience.
 - Which roles demonstrate platform or cloud engineering?
+- What are the candidate's contract, compensation, and collaboration
+  preferences?
 - Compare requirements with the available evidence, separating direct evidence,
   inference, and missing information.
 

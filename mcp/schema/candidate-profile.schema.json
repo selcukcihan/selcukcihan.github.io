@@ -192,6 +192,37 @@
           "type": "array",
           "items": { "enum": ["remote", "hybrid", "onsite"] }
         },
+        "base_time_zone": { "$ref": "#/$defs/nullableString" },
+        "overlap_availability": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "time_zone": { "$ref": "#/$defs/nullableString" },
+            "start_time": {
+              "type": ["string", "null"],
+              "pattern": "^(?:[01][0-9]|2[0-3]):[0-5][0-9]$"
+            },
+            "end_time": {
+              "type": ["string", "null"],
+              "pattern": "^(?:[01][0-9]|2[0-3]):[0-5][0-9]$"
+            }
+          }
+        },
+        "commercial_terms": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "contract_models": { "$ref": "#/$defs/stringArray" },
+            "payment_currency": {
+              "type": ["string", "null"],
+              "pattern": "^[A-Z]{3}$"
+            },
+            "hourly_rate": {
+              "type": ["number", "null"],
+              "minimum": 0
+            }
+          }
+        },
         "preferred_locations": { "$ref": "#/$defs/stringArray" },
         "preferred_time_zones": { "$ref": "#/$defs/stringArray" },
         "domains": { "$ref": "#/$defs/stringArray" },

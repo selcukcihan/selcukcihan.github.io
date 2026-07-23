@@ -78,7 +78,47 @@ export interface PublicTestimonial {
   testimonial: string;
 }
 
-export type PublicCareerPreferences = Record<string, unknown>;
+export interface PublicCareerPreferences {
+  opportunityStatus?: "open" | "selectively_open" | "not_looking";
+  targetRoles?: string[];
+  seniorityLevels?: string[];
+  employmentTypes?: Array<
+    "full_time" | "part_time" | "contract" | "consulting"
+  >;
+  workModes?: Array<"remote" | "hybrid" | "onsite">;
+  baseTimeZone?: string;
+  overlapAvailability?: {
+    timeZone?: string;
+    startTime?: string;
+    endTime?: string;
+  };
+  commercialTerms?: {
+    contractModels?: string[];
+    paymentCurrency?: string;
+    hourlyRate?: number;
+  };
+  preferredLocations?: string[];
+  preferredTimeZones?: string[];
+  domains?: string[];
+  industries?: string[];
+  companyStages?: string[];
+  teamEnvironments?: string[];
+  impactPreferences?: string[];
+  relocation?: {
+    willing?: boolean;
+    notes?: string;
+  };
+  travel?: {
+    willingness?: string;
+    maximumPercent?: number;
+  };
+  availability?: {
+    earliestStartDate?: string;
+    noticePeriod?: string;
+  };
+  notes?: string;
+}
+
 export type PublicCareerNarrative = Record<string, unknown>;
 
 export interface PublicProjection {

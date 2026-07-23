@@ -59,6 +59,17 @@ export interface SourceCareerPreferences {
     "full_time" | "part_time" | "contract" | "consulting"
   >;
   work_modes?: Array<"remote" | "hybrid" | "onsite">;
+  base_time_zone?: Nullable<string>;
+  overlap_availability?: {
+    time_zone?: Nullable<string>;
+    start_time?: Nullable<string>;
+    end_time?: Nullable<string>;
+  };
+  commercial_terms?: {
+    contract_models?: string[];
+    payment_currency?: Nullable<string>;
+    hourly_rate?: Nullable<number>;
+  };
   preferred_locations?: string[];
   preferred_time_zones?: string[];
   domains?: string[];

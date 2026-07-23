@@ -54,6 +54,25 @@ export function sentinelSource(): SourceProfile {
         fullTestimonial: "FULL_TESTIMONIAL_SENTINEL_b61e07",
       },
     ],
+    career_preferences: {
+      employment_types: ["contract"],
+      base_time_zone: "UTC+3",
+      overlap_availability: {
+        time_zone: "UTC+3",
+        start_time: "08:00",
+        end_time: "23:00",
+      },
+      commercial_terms: {
+        contract_models: ["B2B"],
+        payment_currency: "USD",
+        hourly_rate: 100,
+      },
+      team_environments: [
+        "Autonomy",
+        "End-to-end ownership",
+        "Async communication",
+      ],
+    },
     generation_preferences: {
       max_length: "GENERATION_SENTINEL_124a81",
       include_projects: "only_when_helpful",

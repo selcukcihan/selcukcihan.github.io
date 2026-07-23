@@ -43,4 +43,11 @@ describe("source schema validation", () => {
     source.career_narrative = {};
     expect(validateSource(source)).toBe(source);
   });
+
+  it("rejects malformed preference time and currency values", () => {
+    const source = sentinelSource();
+    source.career_preferences!.overlap_availability!.start_time = "8am";
+    source.career_preferences!.commercial_terms!.payment_currency = "dollars";
+    expect(() => validateSource(source)).toThrow(/career_preferences/);
+  });
 });

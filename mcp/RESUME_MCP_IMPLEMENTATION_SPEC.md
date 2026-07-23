@@ -338,6 +338,15 @@ career_preferences:
   seniority_levels: []
   employment_types: []
   work_modes: []
+  base_time_zone: null
+  overlap_availability:
+    time_zone: null
+    start_time: null
+    end_time: null
+  commercial_terms:
+    contract_models: []
+    payment_currency: null
+    hourly_rate: null
   preferred_locations: []
   preferred_time_zones: []
   domains: []
@@ -362,6 +371,8 @@ Recommended controlled values:
 - `opportunity_status`: `open`, `selectively_open`, `not_looking`
 - `employment_types`: `full_time`, `part_time`, `contract`, `consulting`
 - `work_modes`: `remote`, `hybrid`, `onsite`
+- `overlap_availability.start_time` and `end_time`: 24-hour `HH:MM`
+- `commercial_terms.payment_currency`: uppercase ISO 4217 currency code
 
 Do not populate any value without owner input.
 
