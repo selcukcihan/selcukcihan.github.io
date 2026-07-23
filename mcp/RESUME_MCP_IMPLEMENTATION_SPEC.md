@@ -24,11 +24,8 @@ The implementation must use this boundary:
 <personal-pages-repository>/
 ├── candidate-profile.yaml        # or the existing equivalent résumé YAML path
 ├── <existing-personal-site-files>
-├── mcp/
-│   └── <complete Cloudflare Worker project>
-└── .github/
-    └── workflows/
-        └── mcp.yml
+└── mcp/
+    └── <complete Cloudflare Worker project>
 ```
 
 The personal website and MCP server live in the same Git repository but deploy to different platforms:
@@ -67,7 +64,7 @@ Before editing:
 
 The agent must:
 
-- Keep the MCP project entirely under `mcp/`, except for its GitHub Actions workflow and optional site documentation changes.
+- Keep the MCP project entirely under `mcp/`, except for optional site documentation changes.
 - Preserve the existing website behavior.
 - Reuse the existing résumé YAML instead of copying career facts into MCP source files.
 - Avoid inventing candidate data.
@@ -242,8 +239,7 @@ Adapt filenames to the existing personal-site conventions, but keep the MCP boun
 │       └── worker.test.ts
 └── .github/
     └── workflows/
-        ├── <existing-pages-workflow>.yml
-        └── mcp.yml
+        └── <existing-pages-workflow>.yml
 ```
 
 Requirements:
@@ -1168,63 +1164,41 @@ After deployment:
 - Verify `sourceCommit`.
 - Connect from at least one intended real MCP client.
 
-## 19. CI/CD
+## 19. Deployment policy
 
-### 19.1 Preserve Pages deployment
+### 19.1 Preserve Pages CI/CD
 
 Keep the existing GitHub Pages workflow and site build behavior unless a site change requires a small compatible update.
 
-The Pages deployment and MCP deployment remain separate jobs/workflows.
+The Pages deployment remains independent from the MCP server.
 
-### 19.2 Add `.github/workflows/mcp.yml`
+### 19.2 Deploy the MCP manually
 
-Trigger pull-request validation and `main` deployment when these change:
+Do not add a GitHub Actions workflow for the MCP server. Do not store Cloudflare API credentials in GitHub.
 
-```text
-<resume-yaml-path>
-mcp/**
-.github/workflows/mcp.yml
-```
+The owner deploys from a locally authenticated Wrangler session. The documented deployment flow must:
 
-Also include site/shared files if the MCP data generator imports them.
+1. Start from a clean, reviewed Git revision.
+2. Install dependencies in `mcp/` using its lockfile.
+3. Run the complete local validation suite and Wrangler dry run.
+4. Deploy with `wrangler deploy`.
+5. Run the remote health and MCP smoke tests.
+6. Verify the deployed `sourceCommit` matches the intended local Git commit.
+7. Document version inspection and rollback commands.
 
-Workflow steps:
+Use `wrangler login` for the owner's local browser-based authorization. No API key is required by this repository.
 
-1. Check out the repository.
-2. Set up the repository's supported Node version.
-3. Install dependencies in `mcp/` using its lockfile.
-4. Generate data using `GITHUB_SHA`.
-5. Run source/privacy/search/MCP/Worker tests.
-6. Run type-check and lint.
-7. Run `wrangler types --check`, or generate types first.
-8. Run `wrangler deploy --dry-run`.
-9. On `main`, deploy the Worker.
-10. Run remote smoke tests.
-
-Use workflow concurrency so an older run cannot deploy after a newer commit.
-
-Required GitHub deployment credentials:
-
-```text
-CLOUDFLARE_API_TOKEN
-CLOUDFLARE_ACCOUNT_ID
-```
-
-Store credentials only as GitHub secrets/variables. They are deployment credentials, not Worker runtime configuration.
-
-Use a least-privilege Cloudflare API token.
-
-### 19.3 Coordinating site and MCP data
+### 19.3 Coordinating site and MCP data manually
 
 If the personal website is generated from the same YAML:
 
-- A YAML change should trigger both the existing Pages build and the MCP workflow.
-- Both deployments should expose or record the same source commit.
+- A YAML change may trigger the existing Pages build, but the owner must deploy the MCP manually.
+- Both deployments should expose or record the intended source commit.
 - Perfect transactionality is not required, but provenance must be clear.
 
 If the website does not consume the YAML:
 
-- Only the MCP workflow must redeploy for YAML changes.
+- Deploy the MCP manually after relevant YAML changes.
 - Do not force an unnecessary Pages build.
 
 ## 20. Personal-site integration
@@ -1286,7 +1260,7 @@ Commit:
 - Source schema.
 - Owner-approved YAML additions.
 - Tests.
-- GitHub Actions workflow.
+- Manual deployment documentation.
 - Personal-site MCP documentation.
 
 Normally ignore:
@@ -1396,9 +1370,8 @@ If private capabilities are added later, protect them with OAuth and a separatel
 
 ### Phase 6: deployment and site documentation
 
-- Add `mcp.yml`.
-- Configure GitHub deployment credentials.
-- Deploy to `workers.dev`.
+- Document the local Wrangler deployment and rollback procedure.
+- Deploy manually to `workers.dev`.
 - Run smoke test.
 - Configure custom domain after confirmation.
 - Add connection instructions to personal site.
@@ -1427,7 +1400,7 @@ If private capabilities are added later, protect them with OAuth and a separatel
 - [ ] Privacy/search/MCP/Worker tests pass.
 - [ ] `wrangler deploy --dry-run` succeeds.
 - [ ] MCP Inspector connects locally.
-- [ ] Production deployment succeeds when credentials are available.
+- [ ] Production deployment succeeds from the owner's locally authenticated Wrangler session.
 - [ ] Remote smoke test passes.
 - [ ] Personal site contains accurate MCP connection instructions.
 - [ ] Both deployments are traceable to Git commits.

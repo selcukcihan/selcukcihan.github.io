@@ -51,10 +51,40 @@ Example questions:
 
 ## Deployment
 
-GitHub Actions validates pull requests and deploys `main`. Configure:
+MCP deployment is intentionally manual and runs from the owner's local
+machine. There is no MCP deployment workflow and no Cloudflare API credential
+is stored in GitHub.
 
-- Secret `CLOUDFLARE_API_TOKEN` with least-privilege Workers deployment access.
-- Secret `CLOUDFLARE_ACCOUNT_ID`.
+### First-time setup
+
+From the repository root:
+
+```bash
+cd mcp
+npm ci
+npx wrangler login
+npx wrangler whoami
+```
+
+`wrangler login` opens Cloudflare's browser authorization flow. The resulting
+local Wrangler session is used for deployments; no API key or repository secret
+is required.
+
+### Deploy a revision
+
+Deploy only from a clean, reviewed revision so the generated metadata can
+identify the exact Git commit:
+
+```bash
+git status --short
+cd mcp
+npm ci
+npm run deploy
+```
+
+`npm run deploy` regenerates the sanitized public profile, runs type checks,
+linting, unit and Worker tests, performs a Wrangler dry run, and then deploys
+the Worker. If validation fails, deployment does not run.
 
 The deployed endpoint is:
 
@@ -62,11 +92,29 @@ The deployed endpoint is:
 https://selcuk-cihan-career-mcp.selcukcihan.workers.dev/mcp
 ```
 
-A custom domain is intentionally not configured until its DNS record is
-confirmed. Run a manual remote smoke test with:
+After deployment, verify the health metadata and MCP contract:
 
 ```bash
-MCP_URL=https://selcuk-cihan-career-mcp.selcukcihan.workers.dev/mcp npm run smoke:remote
+curl --fail --silent --show-error \
+  https://selcuk-cihan-career-mcp.selcukcihan.workers.dev/health
+
+MCP_URL=https://selcuk-cihan-career-mcp.selcukcihan.workers.dev/mcp \
+  npm run smoke:remote
 ```
 
-Never commit Cloudflare credentials, `.dev.vars`, or generated public JSON.
+The health response's `sourceCommit` should match:
+
+```bash
+git rev-parse HEAD
+```
+
+To inspect versions or roll back:
+
+```bash
+npx wrangler versions list
+npx wrangler rollback <VERSION_ID>
+```
+
+A custom domain is intentionally not configured until its DNS record is
+confirmed. Never commit Wrangler authentication data, Cloudflare credentials,
+`.dev.vars`, or generated public JSON.
