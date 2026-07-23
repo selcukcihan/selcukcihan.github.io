@@ -1,0 +1,263 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://selcukcihan.com/schema/candidate-profile.schema.json",
+  "title": "Candidate profile source",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "basics",
+    "summary",
+    "experience",
+    "education",
+    "certifications",
+    "skills",
+    "references",
+    "generation_preferences"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "basics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["full_name", "current_title", "email", "url"],
+      "properties": {
+        "full_name": { "$ref": "#/$defs/nonEmptyString" },
+        "current_title": { "$ref": "#/$defs/nonEmptyString" },
+        "email": {
+          "type": "string",
+          "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+          "maxLength": 254
+        },
+        "url": { "$ref": "#/$defs/webUrlOrBareDomain" }
+      }
+    },
+    "summary": { "$ref": "#/$defs/nonEmptyString" },
+    "experience": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/experience" }
+    },
+    "projects": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/project" }
+    },
+    "education": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/education" }
+    },
+    "certifications": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/certification" }
+    },
+    "skills": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    },
+    "references": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/reference" }
+    },
+    "generation_preferences": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["max_length", "include_projects", "tone_preferences"],
+      "properties": {
+        "max_length": { "$ref": "#/$defs/nonEmptyString" },
+        "include_projects": { "$ref": "#/$defs/nonEmptyString" },
+        "tone_preferences": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        }
+      }
+    },
+    "career_preferences": { "$ref": "#/$defs/careerPreferences" },
+    "career_narrative": { "$ref": "#/$defs/careerNarrative" },
+    "publication": { "$ref": "#/$defs/publication" }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "nullableString": {
+      "type": ["string", "null"]
+    },
+    "stringArray": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "webUrl": {
+      "type": "string",
+      "pattern": "^https?://[^\\s]+$"
+    },
+    "webUrlOrBareDomain": {
+      "type": "string",
+      "pattern": "^(?:https?://)?(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,}(?::[0-9]{1,5})?(?:/[^\\s]*)?$"
+    },
+    "experience": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "company", "dates"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "title": { "$ref": "#/$defs/nonEmptyString" },
+        "company": { "$ref": "#/$defs/nonEmptyString" },
+        "dates": { "$ref": "#/$defs/nonEmptyString" },
+        "url": {
+          "anyOf": [
+            { "$ref": "#/$defs/webUrl" },
+            { "type": "null" }
+          ]
+        },
+        "tech": { "$ref": "#/$defs/stringArray" },
+        "descriptions": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "dates", "subtitle"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "dates": { "$ref": "#/$defs/nonEmptyString" },
+        "subtitle": { "$ref": "#/$defs/nonEmptyString" },
+        "url": {
+          "anyOf": [
+            { "$ref": "#/$defs/webUrl" },
+            { "type": "null" }
+          ]
+        },
+        "tech": { "$ref": "#/$defs/stringArray" },
+        "bullets": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "education": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["institution", "degree"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "institution": { "$ref": "#/$defs/nonEmptyString" },
+        "dates": { "$ref": "#/$defs/nullableString" },
+        "degree": { "$ref": "#/$defs/nonEmptyString" },
+        "field_of_study": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "certification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "issuer"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "issuer": { "$ref": "#/$defs/nonEmptyString" },
+        "expiration_date": { "$ref": "#/$defs/nullableString" }
+      }
+    },
+    "reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "title", "contact", "testimonial"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "title": { "$ref": "#/$defs/nonEmptyString" },
+        "contact": { "$ref": "#/$defs/nonEmptyString" },
+        "testimonial": { "$ref": "#/$defs/nonEmptyString" },
+        "fullTestimonial": { "$ref": "#/$defs/nullableString" }
+      }
+    },
+    "careerPreferences": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "opportunity_status": {
+          "type": ["string", "null"],
+          "enum": ["open", "selectively_open", "not_looking", null]
+        },
+        "target_roles": { "$ref": "#/$defs/stringArray" },
+        "seniority_levels": { "$ref": "#/$defs/stringArray" },
+        "employment_types": {
+          "type": "array",
+          "items": {
+            "enum": ["full_time", "part_time", "contract", "consulting"]
+          }
+        },
+        "work_modes": {
+          "type": "array",
+          "items": { "enum": ["remote", "hybrid", "onsite"] }
+        },
+        "preferred_locations": { "$ref": "#/$defs/stringArray" },
+        "preferred_time_zones": { "$ref": "#/$defs/stringArray" },
+        "domains": { "$ref": "#/$defs/stringArray" },
+        "industries": { "$ref": "#/$defs/stringArray" },
+        "company_stages": { "$ref": "#/$defs/stringArray" },
+        "team_environments": { "$ref": "#/$defs/stringArray" },
+        "impact_preferences": { "$ref": "#/$defs/stringArray" },
+        "relocation": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "willing": { "type": ["boolean", "null"] },
+            "notes": { "$ref": "#/$defs/nullableString" }
+          }
+        },
+        "travel": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "willingness": { "$ref": "#/$defs/nullableString" },
+            "maximum_percent": {
+              "type": ["integer", "null"],
+              "minimum": 0,
+              "maximum": 100
+            }
+          }
+        },
+        "availability": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "earliest_start_date": { "$ref": "#/$defs/nullableString" },
+            "notice_period": { "$ref": "#/$defs/nullableString" }
+          }
+        },
+        "notes": { "$ref": "#/$defs/nullableString" }
+      }
+    },
+    "careerNarrative": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "current_focus": { "$ref": "#/$defs/nullableString" },
+        "next_role": { "$ref": "#/$defs/nullableString" },
+        "strengths": { "$ref": "#/$defs/stringArray" },
+        "professional_themes": { "$ref": "#/$defs/stringArray" },
+        "preferred_problem_types": { "$ref": "#/$defs/stringArray" },
+        "leadership_style": { "$ref": "#/$defs/nullableString" },
+        "collaboration_style": { "$ref": "#/$defs/nullableString" }
+      }
+    },
+    "publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mcp"],
+      "properties": {
+        "mcp": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": { "type": "boolean" },
+            "include_email": { "type": "boolean" },
+            "include_short_testimonials": { "type": "boolean" }
+          }
+        }
+      }
+    }
+  }
+}

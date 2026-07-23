@@ -12,7 +12,8 @@ summary: |
   Selçuk brings a strong sense of ownership and a track record of delivering results; taking on technical & management duties from operations to development, team building and architecture.
 
 experience:
-  - title: "Senior Software Engineer"
+  - id: "rtic-outdoors-senior-software-engineer"
+    title: "Senior Software Engineer"
     company: "RTIC Outdoors"
     dates: "2023 - 2026"
     url: "https://rticoutdoors.com"
@@ -28,7 +29,8 @@ experience:
       - "Automated warehouse operations such as processing returns, customization of products and workflows, resulting in more efficient use of resources."
       - "Increased observability of the backend systems, providing better visibility into warehouse operations."
 
-  - title: "Senior Software Engineer"
+  - id: "serverless-inc-senior-software-engineer"
+    title: "Senior Software Engineer"
     company: "Serverless Inc."
     dates: "2022 - 2023"
     url: "https://serverless.com"
@@ -41,7 +43,8 @@ experience:
       - "Created the Python AWS Lambda SDK for Serverless Console, an observability platform for applications running on AWS Lambda."
       - "Coordinated releases and maintained backwards compatibility of the SDK."
 
-  - title: "Senior Software Engineer"
+  - id: "tellimer-senior-software-engineer"
+    title: "Senior Software Engineer"
     company: "Tellimer"
     dates: "2019 - 2022"
     url: "https://tellimer.com"
@@ -66,7 +69,8 @@ experience:
       - "Architected an article recommender and an article summarizer for tellimer.com."
       - "Built a serverless app that periodically maintains the sitemap for various web apps for better SEO."
 
-  - title: "Senior Software Engineer"
+  - id: "toptal-senior-software-engineer"
+    title: "Senior Software Engineer"
     company: "Toptal"
     dates: "2018 - 2019"
     url: "https://toptal.com"
@@ -86,7 +90,8 @@ experience:
       - "Optimized cost resulting in more than 50% saving on AWS bill."
       - "Mentored developers and reviewed design documents."
 
-  - title: "Software Engineer"
+  - id: "amazon-software-engineer"
+    title: "Software Engineer"
     company: "Amazon"
     dates: "2017 - 2018"
     url: "https://amazon.com"
@@ -106,7 +111,8 @@ experience:
       - "Carried out live migrations of several web services without downtime."
       - "Successfully deprecated multiple legacy services in an effort to enable catalog growth."
 
-  - title: "Senior Software Engineer"
+  - id: "intertech-senior-software-engineer"
+    title: "Senior Software Engineer"
     company: "Intertech"
     dates: "2013 - 2017"
     url: "https://intertech.com.tr"
@@ -124,7 +130,8 @@ experience:
       - "Supported the workflow engine serving banking applications such as loans, customer complaints etc."
       - "Designed a workforce management system that empowers the bank’s operation center."
 
-  - title: "Software Development Engineer"
+  - id: "ziraat-teknoloji-software-development-engineer"
+    title: "Software Development Engineer"
     company: "Ziraat Teknoloji"
     dates: "2011 - 2013"
     url: "https://ziraatteknoloji.com"
@@ -138,7 +145,8 @@ experience:
       - "Implemented workflow engine running on top of Oracle, serving over 100,000 workflow instances daily."
       - "Served as scrum master and mentored junior developers."
 
-  - title: "Software Development Engineer"
+  - id: "airties-software-development-engineer"
+    title: "Software Development Engineer"
     company: "AirTies"
     dates: "2009 - 2010"
     url: "https://airties.com"
@@ -157,7 +165,8 @@ experience:
       - "Worked on closed captioning and subtitles for IPTV."
 
 education:
-  - institution: "Boğaziçi University"
+  - id: "bogazici-university-computer-science"
+    institution: "Boğaziçi University"
     degree: "BS. & MS. in Computer Science"
     field_of_study:
       - "Parallel algorithms"
@@ -166,7 +175,8 @@ education:
       - "Graph theory"
 
 certifications:
-  - name: "AWS Certified Solutions Architect - Professional"
+  - id: "aws-certified-solutions-architect-professional"
+    name: "AWS Certified Solutions Architect - Professional"
     issuer: "Amazon Web Services"
 
 skills:

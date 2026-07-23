@@ -35,3 +35,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .env
+
+# career MCP worker
+/mcp/node_modules/
+/mcp/.wrangler/
+/mcp/src/generated/
+/mcp/.dev.vars
+/mcp/.env*
+/mcp/coverage/
