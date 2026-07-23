@@ -95,4 +95,4 @@ jobs:
       - name: Smoke-test deployed MCP
         run: npm run smoke:remote
         env:
-          MCP_URL: ${{ vars.MCP_URL }}
+          MCP_URL: https://selcuk-cihan-career-mcp.selcukcihan.workers.dev/mcp

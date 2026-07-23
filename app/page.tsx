@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 
 import {
+  Bot,
   ExternalLink,
 } from "lucide-react";
 import Image from "next/image";
@@ -312,6 +313,97 @@ export default function Portfolio() {
                 </CardContent>
               </Card>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Assistant / MCP Section */}
+      <section className="py-16 bg-slate-100 dark:bg-slate-900">
+        <div className="container px-4 md:px-6">
+          <div className="max-w-6xl mx-auto">
+            <Card className="overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+              <CardContent className="p-8 md:p-10">
+                <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+                  <div className="space-y-5">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 py-1 text-sm font-medium text-slate-700 dark:text-slate-300">
+                      <Bot className="h-4 w-4" />
+                      Public career MCP
+                    </div>
+                    <div className="space-y-3">
+                      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+                        Use my professional profile with an AI assistant
+                      </h2>
+                      <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+                        Connect an MCP-compatible assistant to my public,
+                        owner-maintained career evidence. The service is
+                        read-only and does not provide independent employment
+                        verification.
+                      </p>
+                    </div>
+                    <div className="rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 p-4">
+                      <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                        Streamable HTTP endpoint
+                      </p>
+                      <code className="block break-all text-sm text-slate-900 dark:text-slate-100">
+                        https://selcuk-cihan-career-mcp.selcukcihan.workers.dev/mcp
+                      </code>
+                    </div>
+                    <div className="flex flex-wrap gap-3">
+                      <Button asChild className="gap-2">
+                        <Link
+                          href="https://selcuk-cihan-career-mcp.selcukcihan.workers.dev/health"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Check service status
+                          <ExternalLink className="h-4 w-4" />
+                        </Link>
+                      </Button>
+                      <Button asChild variant="outline" className="gap-2">
+                        <Link
+                          href="https://github.com/selcukcihan/selcukcihan.github.io/tree/main/mcp"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Connection guide
+                          <ExternalLink className="h-4 w-4" />
+                        </Link>
+                      </Button>
+                    </div>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">
+                      The <code>/mcp</code> URL is a protocol endpoint, not a
+                      browser résumé. Version and source-commit provenance are
+                      published through <code>career://metadata</code>.
+                    </p>
+                  </div>
+
+                  <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-6">
+                    <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
+                      Example questions
+                    </h3>
+                    <ul className="space-y-4 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+                      <li>
+                        Summarize this person&apos;s distributed-systems
+                        experience and cite item IDs.
+                      </li>
+                      <li>
+                        Find public evidence of TypeScript and Python
+                        experience.
+                      </li>
+                      <li>
+                        Compare these requirements with the available career
+                        evidence. Separate direct evidence, inference, and
+                        missing information.
+                      </li>
+                      <li>
+                        Prepare interview questions grounded in published
+                        experience.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

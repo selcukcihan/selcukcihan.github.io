@@ -55,17 +55,18 @@ GitHub Actions validates pull requests and deploys `main`. Configure:
 
 - Secret `CLOUDFLARE_API_TOKEN` with least-privilege Workers deployment access.
 - Secret `CLOUDFLARE_ACCOUNT_ID`.
-- Repository variable `MCP_URL` containing the deployed endpoint, including
-  `/mcp`, for the post-deployment smoke test.
 
-The initial deployment uses the Worker name `selcuk-cihan-career-mcp` on
-`workers.dev`. A custom domain is intentionally not configured until its DNS
-record is confirmed.
+The deployed endpoint is:
 
-Run a manual remote smoke test with:
+```text
+https://selcuk-cihan-career-mcp.selcukcihan.workers.dev/mcp
+```
+
+A custom domain is intentionally not configured until its DNS record is
+confirmed. Run a manual remote smoke test with:
 
 ```bash
-MCP_URL=https://<worker-subdomain>/mcp npm run smoke:remote
+MCP_URL=https://selcuk-cihan-career-mcp.selcukcihan.workers.dev/mcp npm run smoke:remote
 ```
 
 Never commit Cloudflare credentials, `.dev.vars`, or generated public JSON.
