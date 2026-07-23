@@ -35,16 +35,16 @@ The personal website and MCP server live in the same Git repository but deploy t
 
 The maintained résumé YAML is the only shared data source. The MCP implementation must be self-contained within the personal-site repository.
 
-The intended production endpoint is:
+The production endpoint is:
 
 ```text
-https://mcp.<OWNER_DOMAIN>/mcp
+https://mcp.selcukcihan.com/mcp
 ```
 
-Until a custom domain is confirmed, use:
+The `workers.dev` endpoint may remain enabled as a fallback:
 
 ```text
-https://<WORKER_NAME>.<CLOUDFLARE_SUBDOMAIN>.workers.dev/mcp
+https://selcuk-cihan-career-mcp.selcukcihan.workers.dev/mcp
 ```
 
 Do not attempt to host the MCP protocol through GitHub Pages. GitHub Pages is static, while remote MCP requires an HTTP runtime that accepts protocol requests at `/mcp`.
@@ -997,21 +997,23 @@ Requirements:
 - No Durable Object or migration.
 - No runtime secret for the MVP.
 
-After confirming a Cloudflare-managed custom domain:
+The confirmed Cloudflare-managed custom domain is configured as:
 
 ```jsonc
 {
-  "workers_dev": false,
+  "workers_dev": true,
   "routes": [
     {
-      "pattern": "mcp.<OWNER_DOMAIN>",
+      "pattern": "mcp.selcukcihan.com",
       "custom_domain": true
     }
   ]
 }
 ```
 
-Do not overwrite an existing DNS record.
+Keeping `workers_dev` enabled preserves the original endpoint as a fallback. It
+may be disabled after the custom-domain cutover is verified. Do not overwrite
+an existing DNS record.
 
 ## 17. MCP package scripts
 

@@ -345,13 +345,13 @@ export default function Portfolio() {
                         Streamable HTTP endpoint
                       </p>
                       <code className="block break-all text-sm text-slate-900 dark:text-slate-100">
-                        https://selcuk-cihan-career-mcp.selcukcihan.workers.dev/mcp
+                        https://mcp.selcukcihan.com/mcp
                       </code>
                     </div>
                     <div className="flex flex-wrap gap-3">
                       <Button asChild className="gap-2">
                         <Link
-                          href="https://selcuk-cihan-career-mcp.selcukcihan.workers.dev/health"
+                          href="https://mcp.selcukcihan.com/health"
                           target="_blank"
                           rel="noopener noreferrer"
                         >

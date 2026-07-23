@@ -86,19 +86,19 @@ npm run deploy
 linting, unit and Worker tests, performs a Wrangler dry run, and then deploys
 the Worker. If validation fails, deployment does not run.
 
-The deployed endpoint is:
+The canonical deployed endpoint is:
 
 ```text
-https://selcuk-cihan-career-mcp.selcukcihan.workers.dev/mcp
+https://mcp.selcukcihan.com/mcp
 ```
 
 After deployment, verify the health metadata and MCP contract:
 
 ```bash
 curl --fail --silent --show-error \
-  https://selcuk-cihan-career-mcp.selcukcihan.workers.dev/health
+  https://mcp.selcukcihan.com/health
 
-MCP_URL=https://selcuk-cihan-career-mcp.selcukcihan.workers.dev/mcp \
+MCP_URL=https://mcp.selcukcihan.com/mcp \
   npm run smoke:remote
 ```
 
@@ -115,6 +115,8 @@ npx wrangler versions list
 npx wrangler rollback <VERSION_ID>
 ```
 
-A custom domain is intentionally not configured until its DNS record is
-confirmed. Never commit Wrangler authentication data, Cloudflare credentials,
-`.dev.vars`, or generated public JSON.
+Wrangler manages the custom domain and its certificate. The original
+`https://selcuk-cihan-career-mcp.selcukcihan.workers.dev/mcp` endpoint remains
+enabled as a fallback while `workers_dev` is `true`. Never commit Wrangler
+authentication data, Cloudflare credentials, `.dev.vars`, or generated public
+JSON.
